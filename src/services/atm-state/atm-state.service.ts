@@ -16,6 +16,7 @@ export class AtmStateService {
       { value: CurrencyValue[CurrencyValue.hundread], display: 100, amount: 10 },
       { value: CurrencyValue[CurrencyValue.fifty], display: 50, amount: 10 },
       { value: CurrencyValue[CurrencyValue.twenty], display: 20, amount: 10 },
+      { value: CurrencyValue[CurrencyValue.tens], display: 10, amount: 10 },
       { value: CurrencyValue[CurrencyValue.five], display: 5, amount: 10 },
       { value: CurrencyValue[CurrencyValue.dollar], display: 1, amount: 10 }
     ];
@@ -51,15 +52,21 @@ export class AtmStateService {
     }
     amount -= twentiesUsed * 20;
 
+    var tensUsed = Math.floor(amount / 10);
+    if(tensUsed > this._currentStock[3].amount) {
+      tensUsed = this._currentStock[3].amount;
+    }
+    amount -= tensUsed * 10;
+
     var fivesUsed = Math.floor(amount / 5);
-    if(fivesUsed > this._currentStock[3].amount) {
-      fivesUsed = this._currentStock[3].amount;
+    if(fivesUsed > this._currentStock[4].amount) {
+      fivesUsed = this._currentStock[4].amount;
     }
     amount -= fivesUsed * 5;
 
     var dolalrsUsed = Math.floor(amount / 1);
-    if(dolalrsUsed > this._currentStock[4].amount) {
-      dolalrsUsed = this._currentStock[4].amount;
+    if(dolalrsUsed > this._currentStock[5].amount) {
+      dolalrsUsed = this._currentStock[5].amount;
     }
     amount -= dolalrsUsed * 1;
 
@@ -67,8 +74,9 @@ export class AtmStateService {
       this._currentStock[0].amount -= hundreadsUsed;
       this._currentStock[1].amount -= fiftiesUsed;
       this._currentStock[2].amount -= twentiesUsed;
-      this._currentStock[3].amount -= fivesUsed;
-      this._currentStock[4].amount -= dolalrsUsed;
+      this._currentStock[3].amount -= tensUsed;
+      this._currentStock[4].amount -= fivesUsed;
+      this._currentStock[5].amount -= dolalrsUsed;
 
       return true;
     }
