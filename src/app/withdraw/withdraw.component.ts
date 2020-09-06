@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AtmHistoryService } from '../../services/atm-history/atm-history.service';
 import { AtmStateService } from '../../services/atm-state/atm-state.service';
+import { TransactionHistoryType } from '../../enum/transaction-history-type.enum';
 
 @Component({
   selector: 'app-withdraw',
@@ -10,10 +11,12 @@ import { AtmStateService } from '../../services/atm-state/atm-state.service';
 })
 export class WithdrawComponent implements OnInit {
 
+  public withdrawlAmount: number = 0;
   public withdrawForm: FormGroup;
   public withdrawlSuccessFull: Boolean = null
 
   constructor(
+    private atmHistoryService: AtmHistoryService,
     private atmStateService: AtmStateService
   ) { }
 
@@ -24,6 +27,16 @@ export class WithdrawComponent implements OnInit {
   }
 
   public processWithdrawl(): void {
-    this.withdrawlSuccessFull = this.atmStateService.processWithdrawl(this.withdrawForm.controls['withdrawlAmount'].value)
+    this.withdrawlAmount = this.withdrawForm.controls['withdrawlAmount'].value;
+    this.withdrawlSuccessFull = this.atmStateService.processWithdrawl(this.withdrawlAmount)
+    this.logHistory();
+  }
+
+  private logHistory(): void {
+    this.atmHistoryService.addHistory({ 
+      type: TransactionHistoryType[TransactionHistoryType.withdrawl], 
+      message: 'Attempt to Withdraw of ' + this.withdrawlAmount + ((this.withdrawlSuccessFull) ? ' was a success' : ' failed, insufficient funds'),
+      date: new Date() 
+    });
   }
 }

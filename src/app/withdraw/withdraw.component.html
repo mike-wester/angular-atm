@@ -1,7 +1,7 @@
 <form [formGroup]="withdrawForm" (submit)="processWithdrawl()" class="atm-withdraw">
     <h5>Withdraw from the ATM</h5>
-    <div class='withdraw-success' *ngIf='withdrawlSuccessFull !== null && withdrawlSuccessFull'>Withdrawl Successful!</div>
-    <div class='withdraw-fail' *ngIf='withdrawlSuccessFull !== null && !withdrawlSuccessFull'>Withdrawl Failed Unable to Process!</div>
+    <div class='withdraw-success' *ngIf='withdrawlSuccessFull !== null && withdrawlSuccessFull'>Dispensed {{withdrawlAmount}}</div>
+    <div class='withdraw-fail' *ngIf='withdrawlSuccessFull !== null && !withdrawlSuccessFull'>Insufficient Funds</div>
     <div>  
         <label>Amount</label>
         <input type="number" formControlName='withdrawlAmount'>
