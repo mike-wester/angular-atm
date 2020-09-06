@@ -30,6 +30,7 @@ export class WithdrawComponent implements OnInit {
     this.withdrawlAmount = this.withdrawForm.controls['withdrawlAmount'].value;
     this.withdrawlSuccessFull = this.atmStateService.processWithdrawl(this.withdrawlAmount)
     this.logHistory();
+    this.withdrawForm.controls['withdrawlAmount'].setValue(0);
   }
 
   private logHistory(): void {
