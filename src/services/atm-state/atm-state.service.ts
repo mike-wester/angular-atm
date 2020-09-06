@@ -8,7 +8,7 @@ import { CurrencyValue } from '../../enum/currency-value.enum';
 })
 export class AtmStateService {
 
-  private _currentStock: Currency[];
+  private _currentStock: Currency[] = [];
   private _behaviorSubject: BehaviorSubject<Currency[]> = new BehaviorSubject(null);
 
   constructor() { 
@@ -29,5 +29,50 @@ export class AtmStateService {
     this._currentStock[currencyValue].amount += amount;
     this._behaviorSubject.next(this._currentStock);
     return true;
+  }
+
+  public processWithdrawl(amount: number) : boolean {
+
+    var hundreadsUsed = Math.floor(amount / 100);
+    if(hundreadsUsed > this._currentStock[0].amount) {
+      hundreadsUsed = this._currentStock[0].amount;
+    }
+    amount -= hundreadsUsed * 100;
+
+    var fiftiesUsed = Math.floor(amount / 50);
+    if(fiftiesUsed > this._currentStock[1].amount) {
+      fiftiesUsed = this._currentStock[1].amount;
+    }
+    amount -= fiftiesUsed * 50;
+
+    var twentiesUsed = Math.floor(amount / 20);
+    if(twentiesUsed > this._currentStock[2].amount) {
+      twentiesUsed = this._currentStock[2].amount;
+    }
+    amount -= twentiesUsed * 20;
+
+    var fivesUsed = Math.floor(amount / 5);
+    if(fivesUsed > this._currentStock[3].amount) {
+      fivesUsed = this._currentStock[3].amount;
+    }
+    amount -= fivesUsed * 5;
+
+    var dolalrsUsed = Math.floor(amount / 1);
+    if(dolalrsUsed > this._currentStock[4].amount) {
+      dolalrsUsed = this._currentStock[4].amount;
+    }
+    amount -= dolalrsUsed * 1;
+
+    if(amount === 0) {
+      this._currentStock[0].amount -= hundreadsUsed;
+      this._currentStock[1].amount -= fiftiesUsed;
+      this._currentStock[2].amount -= twentiesUsed;
+      this._currentStock[3].amount -= fivesUsed;
+      this._currentStock[4].amount -= dolalrsUsed;
+
+      return true;
+    }
+
+    return false;
   }
 }

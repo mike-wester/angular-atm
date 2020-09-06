@@ -32,6 +32,7 @@ export class RestockComponent implements OnInit {
 
   public restock(): void {
     this.updateInventory();
+    this.restockSuccessFull = true;
     this.logHistory();
     this.reset();
   }
@@ -46,7 +47,7 @@ export class RestockComponent implements OnInit {
                'Dolalrs restocked: ' + this.restockForm.controls['amountOne'].value,
       date: new Date() 
     });
-  } 
+  }
 
   private reset(): void {
     this.restockForm.controls['amountHundread'].setValue(0);
