@@ -1,0 +1,60 @@
+$base-color: #3498db;
+$text: #74808a;
+
+footer {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.copyright {
+    padding-top: 20px;
+
+    p {
+        margin: 0;
+        color: 000;
+    }
+}
+
+.top {
+    text-align: center;
+
+    span {
+        cursor: pointer;
+        display: block;
+        margin: 15px auto 0 auto;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: 3px solid lighten($text, 25%);
+        text-align:center;
+    }
+
+    i {
+        color: $text;
+    }
+}
+
+.social {
+    text-align: right;
+
+    ul {
+        margin: 5px 0 0 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        font-size: 1.25em;
+        list-style: none;
+    }
+
+    a {
+        display: block;
+        color: $text;
+        padding: 10px;
+
+        &:hover {
+            color: $base-color;
+        }
+    }
+}
