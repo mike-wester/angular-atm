@@ -31,12 +31,7 @@ export class RestockComponent implements OnInit {
   }
 
   public restock(): void {
-    this.atmStateService.addStock(CurrencyValue.hundread, this.restockForm.controls['amountHundread'].value);
-    this.atmStateService.addStock(CurrencyValue.fifty, this.restockForm.controls['amountFifty'].value);
-    this.atmStateService.addStock(CurrencyValue.twenty, this.restockForm.controls['amountTwenty'].value);
-    this.atmStateService.addStock(CurrencyValue.five, this.restockForm.controls['amountFive'].value);
-    this.atmStateService.addStock(CurrencyValue.dollar, this.restockForm.controls['amountOne'].value);
-
+    this.updateInventory();
     this.logHistory();
     this.reset();
   }
@@ -44,7 +39,7 @@ export class RestockComponent implements OnInit {
   private logHistory(): void {
     this.atmHistoryService.addHistory({ 
       type: TransactionHistoryType[TransactionHistoryType.restock], 
-      message: 'Hundreads restocked: ' + this.restockForm.controls['amountHundread'].value + '\r\n ' + 
+      message: 'Hundreads restocked: ' + this.restockForm.controls['amountHundread'].value + ' ' + 
                'Fifties restocked: ' + this.restockForm.controls['amountFifty'].value + ' ' + 
                'Twenties restocked: ' + this.restockForm.controls['amountTwenty'].value +  ' ' + 
                'Fives restocked: ' + this.restockForm.controls['amountFive'].value +  ' ' + 
@@ -59,5 +54,13 @@ export class RestockComponent implements OnInit {
     this.restockForm.controls['amountTwenty'].setValue(0);
     this.restockForm.controls['amountFive'].setValue(0);
     this.restockForm.controls['amountOne'].setValue(0);
-  } 
+  }
+
+  private updateInventory(): void {
+    this.atmStateService.addStock(CurrencyValue.hundread, this.restockForm.controls['amountHundread'].value);
+    this.atmStateService.addStock(CurrencyValue.fifty, this.restockForm.controls['amountFifty'].value);
+    this.atmStateService.addStock(CurrencyValue.twenty, this.restockForm.controls['amountTwenty'].value);
+    this.atmStateService.addStock(CurrencyValue.five, this.restockForm.controls['amountFive'].value);
+    this.atmStateService.addStock(CurrencyValue.dollar, this.restockForm.controls['amountOne'].value);
+  }
 }
