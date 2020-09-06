@@ -13,6 +13,6 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('this.atmStateService.currentStock', this.atmStateService.currentStock);
+
   }
 }
