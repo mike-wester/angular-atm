@@ -1,1 +1,38 @@
-<p>restock works!</p>
+<form [formGroup]="restockForm" (submit)="restock()" class="atm-restock">
+    <h5>Restock the ATM</h5>
+    <div class='restock-success' *ngIf='restockSuccessFull'>Congradulations Restock Successful!</div>
+    <div>Restock with:</div>
+    <ul>
+        <li>
+            <div>  
+                <label>{{100 | currency:'USD':'symbol':'1.2-2'}}</label>
+                <input type="number" formControlName='amountHundread'>
+            </div>
+        </li>
+        <li>
+            <div>  
+                <label>{{50 | currency:'USD':'symbol':'1.2-2'}}</label>
+                <input type="number" formControlName='amountFifty'/>
+            </div>
+        </li>
+        <li>
+            <div>  
+                <label>{{20 | currency:'USD':'symbol':'1.2-2'}}</label>
+                <input type="number" formControlName='amountTwenty'/>
+            </div>
+        </li>
+        <li>
+            <div>  
+                <label>{{5 | currency:'USD':'symbol':'1.2-2'}}</label>
+                <input type="number" formControlName='amountFive'/>
+            </div>
+        </li>
+        <li>
+            <div>  
+                <label>{{1 | currency:'USD':'symbol':'1.2-2'}}</label>
+                <input type="number" formControlName='amountOne'/>
+            </div>
+        </li>
+    </ul>
+    <button type="submit">Restock</button>
+</form>

@@ -1,7 +1,7 @@
 <div class="atm-dashboard">
     <h5>Welcome to Simple Angular ATM</h5>
     <div>Currently we are stocked with:</div>
-    <ul *ngFor="let stock of atmStateService.currentStock">
+    <ul *ngFor="let stock of atmStateService.getCurrentStock() | async">
         <li>
             <div>Value: {{stock.display | currency:'USD':'symbol':'1.2-2'}}</div>
             <div>Current amount: {{stock.amount}}</div>
