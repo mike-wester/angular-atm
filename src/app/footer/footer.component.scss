@@ -15,25 +15,6 @@ footer {
     }
 }
 
-.top {
-    text-align: center;
-
-    span {
-        cursor: pointer;
-        display: block;
-        margin: 15px auto 0 auto;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        border: 3px solid lighten($text, 25%);
-        text-align:center;
-    }
-
-    i {
-        color: $text;
-    }
-}
-
 .social {
     text-align: right;
 
