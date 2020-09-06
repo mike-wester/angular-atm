@@ -1,1 +1,10 @@
-<p>overview works!</p>
+<div class="atm-Overview">
+    <h5>Transaction Overview/History</h5>
+    <ul *ngFor="let transaction of atmHistoryService.getTransactionHistory() | async">
+        <li>
+            <div>Type: {{transaction.type}}</div>
+            <div>Message: {{transaction.message}}</div>
+            <div>Date: {{transaction.date}}</div>
+        </li>
+    </ul>
+</div>

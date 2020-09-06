@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AtmHistoryService } from '../../services/atm-history/atm-history.service';
 
 @Component({
   selector: 'app-overview',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public atmHistoryService: AtmHistoryService
+  ) { }
 
   ngOnInit(): void {
   }
