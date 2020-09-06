@@ -1,10 +1,10 @@
 <div class="atm-dashboard">
-    <h5>Welcome to Simple Angular ATM</h5>
-    <div>Currently we are stocked with:</div>
-    <ul *ngFor="let stock of atmStateService.getCurrentStock() | async">
-        <li>
-            <div>Value: {{stock.display | currency:'USD':'symbol':'1.2-2'}}</div>
-            <div>Current amount: {{stock.amount}}</div>
-        </li>
-    </ul>
+    <h3>Welcome to Simple Angular ATM</h3>
+    <h5>Currently we are stocked with:</h5>
+    <div class='container' *ngFor="let stock of atmStateService.getCurrentStock() | async">
+        <div class='row'>
+            <span class='col-sm-6'>Value: {{stock.display | currency:'USD':'symbol':'1.2-2'}}</span>
+            <span class='col-sm-6'>Current amount: {{stock.amount}}</span>
+        </div>
+    </div>
 </div>
