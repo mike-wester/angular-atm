@@ -7,6 +7,10 @@ import { WithdrawComponent } from './withdraw/withdraw.component';
 
 const routes: Routes = [
     {
+        path: 'dashboard',
+        component: DashboardComponent,
+    },
+    {
         path: 'overview',
         component: OverviewComponent,
     },
@@ -18,10 +22,11 @@ const routes: Routes = [
         path: 'withdraw',
         component: WithdrawComponent,
     },
-    {
+    { 
         path: '',
-        component: DashboardComponent,
-    },
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+    }
 ];
 
 @NgModule({
