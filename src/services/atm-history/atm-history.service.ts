@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TransactionHistory } from '../../interface/transaction-history';
-import { TransactionHistoryType } from '../../enum/transaction-history-type.enum';
 
 @Injectable({
   providedIn: 'root'
