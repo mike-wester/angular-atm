@@ -10,6 +10,10 @@ import { RestockComponent } from './admin/restock/restock.component';
 import { OverviewComponent } from './admin/overview/overview.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { LoginComponent } from './login/login/login.component';
+import { UserLandingComponent } from './user/user-landing/user-landing.component';
+import { AdminLandingComponent } from './admin/admin-landing/admin-landing.component';
+import { TransactionHistoryComponent } from './admin/transaction-history/transaction-history.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { FooterComponent } from './shared/footer/footer.component';
     RestockComponent,
     OverviewComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    UserLandingComponent,
+    AdminLandingComponent,
+    TransactionHistoryComponent
   ],
   imports: [
     BrowserModule,

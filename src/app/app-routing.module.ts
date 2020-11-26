@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from 'src/app/admin/overview/overview.component';
-import { DashboardComponent } from 'src/app/shared/dashboard/dashboard.component';
+import { AdminLandingComponent } from 'src/app/admin/admin-landing/admin-landing.component';
 import { RestockComponent } from 'src/app/admin/restock/restock.component';
 import { WithdrawComponent } from 'src/app/user/withdraw/withdraw.component';
 
 const routes: Routes = [
     {
-        path: 'dashboard',
-        component: DashboardComponent,
+        path: 'admin-landing',
+        component: AdminLandingComponent,
     },
     {
         path: 'overview',
@@ -24,7 +24,7 @@ const routes: Routes = [
     },
     { 
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/admin-landing',
         pathMatch: 'full'
     }
 ];
