@@ -2,6 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
+## Future Changes
+
+• Seperate out basic users and admin users
+
+• Finalize basic users user experience
+
+• Finalize admin users basic experience
+
+• Update to Mobile First design pattern
+
+• Update header navigation to dropdown selection
+
+• Create Complaints Section
+
+• Allow admin to add/remove users
+
+• Handle change as well as dollars
+
 ## Challenge Requirements
 
 Application Requirements:
