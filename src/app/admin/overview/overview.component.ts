@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AtmHistoryService } from '../../services/atm-history/atm-history.service';
+import { AtmHistoryService } from 'src/services/atm-history/atm-history.service';
 
 @Component({
   selector: 'app-overview',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AtmStateService } from '../../services/atm-state/atm-state.service';
+import { AtmStateService } from 'src/services/atm-state/atm-state.service';
 
 @Component({
   selector: 'app-dashboard',

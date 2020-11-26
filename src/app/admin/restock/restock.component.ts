@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AtmHistoryService } from '../../services/atm-history/atm-history.service';
-import { AtmStateService } from '../../services/atm-state/atm-state.service';
-import { CurrencyValue } from '../../enum/currency-value.enum';
-import { TransactionHistoryType } from '../../enum/transaction-history-type.enum';
+import { AtmHistoryService } from 'src/services/atm-history/atm-history.service';
+import { AtmStateService } from 'src/services/atm-state/atm-state.service';
+import { CurrencyValue } from 'src/enum/currency-value.enum';
+import { TransactionHistoryType } from 'src/enum/transaction-history-type.enum';
 
 @Component({
   selector: 'app-restock',
