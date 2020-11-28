@@ -6,11 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
-    "build:single-spa": "ng build --prod --deploy-url /dist/angular-atm --output-hashing none",
-    "serve:single-spa": "ng serve --disable-host-check --port 4201 --deploy-url http://localhost:4201/ --live-reload false"
+    "lint": "ng lint"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.2",
     "@angular/common": "~11.0.2",
