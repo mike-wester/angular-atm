@@ -9,8 +9,7 @@ import { CurrencyValue } from '../../enum/currency-value.enum';
 export class AtmStateService {
 
     private _currentStock: Currency[] = [];
-
-    public _currentStockSubject: BehaviorSubject<Currency[]> = new BehaviorSubject(null);
+    private _currentStockSubject: BehaviorSubject<Currency[]> = new BehaviorSubject(null);
 
     constructor() {
         this._currentStock = [
