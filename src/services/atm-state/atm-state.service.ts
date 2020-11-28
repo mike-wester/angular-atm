@@ -4,83 +4,57 @@ import { Currency } from '../../interface/currency.interface';
 import { CurrencyValue } from '../../enum/currency-value.enum';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AtmStateService {
 
-  private _currentStock: Currency[] = [];
-  private _behaviorSubject: BehaviorSubject<Currency[]> = new BehaviorSubject(null);
+    private _currentStock: Currency[] = [];
 
-  constructor() { 
-    this._currentStock = [
-      { value: CurrencyValue[CurrencyValue.hundread], display: 100, amount: 10 },
-      { value: CurrencyValue[CurrencyValue.fifty], display: 50, amount: 10 },
-      { value: CurrencyValue[CurrencyValue.twenty], display: 20, amount: 10 },
-      { value: CurrencyValue[CurrencyValue.tens], display: 10, amount: 10 },
-      { value: CurrencyValue[CurrencyValue.five], display: 5, amount: 10 },
-      { value: CurrencyValue[CurrencyValue.dollar], display: 1, amount: 10 }
-    ];
+    public _currentStockSubject: BehaviorSubject<Currency[]> = new BehaviorSubject(null);
 
-    this._behaviorSubject.next(this._currentStock);
-  }
+    constructor() {
+        this._currentStock = [
+            { index: CurrencyValue[CurrencyValue.hundread], value: 100, count: 10 },
+            { index: CurrencyValue[CurrencyValue.fifty], value: 50, count: 10 },
+            { index: CurrencyValue[CurrencyValue.twenty], value: 20, count: 10 },
+            { index: CurrencyValue[CurrencyValue.tens], value: 10, count: 10 },
+            { index: CurrencyValue[CurrencyValue.five], value: 5, count: 10 },
+            { index: CurrencyValue[CurrencyValue.two], value: 2, count: 10 },
+            { index: CurrencyValue[CurrencyValue.dollar], value: 1, count: 10 }
+        ];
 
-  public getCurrentStock(): Observable<Currency[]> { return this._behaviorSubject.asObservable(); } 
-
-  public addStock(currencyValue: CurrencyValue, amount: number): boolean {
-    this._currentStock[currencyValue].amount += amount;
-    this._behaviorSubject.next(this._currentStock);
-    return true;
-  }
-
-  public processWithdrawl(amount: number) : boolean {
-
-    var hundreadsUsed = Math.floor(amount / 100);
-    if(hundreadsUsed > this._currentStock[0].amount) {
-      hundreadsUsed = this._currentStock[0].amount;
-    }
-    amount -= hundreadsUsed * 100;
-
-    var fiftiesUsed = Math.floor(amount / 50);
-    if(fiftiesUsed > this._currentStock[1].amount) {
-      fiftiesUsed = this._currentStock[1].amount;
-    }
-    amount -= fiftiesUsed * 50;
-
-    var twentiesUsed = Math.floor(amount / 20);
-    if(twentiesUsed > this._currentStock[2].amount) {
-      twentiesUsed = this._currentStock[2].amount;
-    }
-    amount -= twentiesUsed * 20;
-
-    var tensUsed = Math.floor(amount / 10);
-    if(tensUsed > this._currentStock[3].amount) {
-      tensUsed = this._currentStock[3].amount;
-    }
-    amount -= tensUsed * 10;
-
-    var fivesUsed = Math.floor(amount / 5);
-    if(fivesUsed > this._currentStock[4].amount) {
-      fivesUsed = this._currentStock[4].amount;
-    }
-    amount -= fivesUsed * 5;
-
-    var dolalrsUsed = Math.floor(amount / 1);
-    if(dolalrsUsed > this._currentStock[5].amount) {
-      dolalrsUsed = this._currentStock[5].amount;
-    }
-    amount -= dolalrsUsed * 1;
-
-    if(amount === 0) {
-      this._currentStock[0].amount -= hundreadsUsed;
-      this._currentStock[1].amount -= fiftiesUsed;
-      this._currentStock[2].amount -= twentiesUsed;
-      this._currentStock[3].amount -= tensUsed;
-      this._currentStock[4].amount -= fivesUsed;
-      this._currentStock[5].amount -= dolalrsUsed;
-
-      return true;
+        this._currentStockSubject.next(this._currentStock);
     }
 
-    return false;
-  }
+    public getCurrentStock(): Observable<Currency[]> { return this._currentStockSubject.asObservable(); }
+
+    public addStock(currencyValue: CurrencyValue, amount: number): boolean {
+        this._currentStock[currencyValue].count += amount;
+        this._currentStockSubject.next(this._currentStock);
+        return true;
+    }
+
+    public processWithdrawl(amount: number): boolean {
+
+        var inventoryUsed: number[] = [];
+
+        this._currentStock.forEach((currentCurrency: Currency, index: number) => {
+            inventoryUsed.push(this.checkStock(amount, currentCurrency.value));
+            amount -= inventoryUsed[index] * currentCurrency.value;
+        });
+
+        if (amount === 0) {
+            this._currentStock.forEach((_, index: number) => {
+                this._currentStock[index].count -= inventoryUsed[index];
+            })
+
+            return true;
+        };
+
+        return false;
+    }
+
+    private checkStock(totalAmount: number, processAmount: number): number {
+        return Math.floor(totalAmount / processAmount);
+    }
 }

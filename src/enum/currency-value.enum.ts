@@ -4,5 +4,6 @@ export enum CurrencyValue {
     'twenty',
     'tens',
     'five',
+    'two',
     'dollar'
 }

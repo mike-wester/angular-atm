@@ -1,1 +1,17 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" (submit)="processLogin()" class="atm-login">
+    <h3 class='page-header'>Welcome to BenderCO's ATM</h3>
+    <div class='login-processing' *ngIf='loginSuccessFull === null'>Processing</div>
+    <div class='login-fail' *ngIf='loginSuccessFull !== null && !loginSuccessFull'>Invalid Username/Password Combination
+    </div>
+    <div class="input-group mb-3">
+        <input type="string" formControlName='userName' class="form-control" aria-label="User Name">
+    </div>
+    <div class="input-group mb-3">
+        <input type="string" formControlName='password' class="form-control" aria-label="Password">
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+    </div>
+</form>

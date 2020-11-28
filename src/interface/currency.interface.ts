@@ -1,5 +1,5 @@
 export interface Currency {
-    value: string,
-    display: number,
-    amount: number
+    index: string,
+    value: number,
+    count: number
 }
