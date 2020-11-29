@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AtmHistoryService } from 'src/services/atm-history/atm-history.service';
 import { AtmStateService } from 'src/services/atm-state/atm-state.service';
-import { CurrencyValue } from 'src/enum/currency-value.enum';
+import { CurrencyType } from 'src/enum/currency-value.enum';
 import { TransactionHistoryType } from 'src/enum/transaction-history-type.enum';
 
 @Component({
@@ -61,11 +61,11 @@ export class RestockComponent implements OnInit {
     }
 
     private updateInventory(): void {
-        this.atmStateService.addStock(CurrencyValue.hundread, this.restockForm.controls['amountHundread'].value);
-        this.atmStateService.addStock(CurrencyValue.fifty, this.restockForm.controls['amountFifty'].value);
-        this.atmStateService.addStock(CurrencyValue.twenty, this.restockForm.controls['amountTwenty'].value);
-        this.atmStateService.addStock(CurrencyValue.tens, this.restockForm.controls['amountTen'].value);
-        this.atmStateService.addStock(CurrencyValue.five, this.restockForm.controls['amountFive'].value);
-        this.atmStateService.addStock(CurrencyValue.dollar, this.restockForm.controls['amountOne'].value);
+        this.atmStateService.addStock(CurrencyType.hundread, this.restockForm.controls['amountHundread'].value);
+        this.atmStateService.addStock(CurrencyType.fifty, this.restockForm.controls['amountFifty'].value);
+        this.atmStateService.addStock(CurrencyType.twenty, this.restockForm.controls['amountTwenty'].value);
+        this.atmStateService.addStock(CurrencyType.tens, this.restockForm.controls['amountTen'].value);
+        this.atmStateService.addStock(CurrencyType.five, this.restockForm.controls['amountFive'].value);
+        this.atmStateService.addStock(CurrencyType.dollar, this.restockForm.controls['amountOne'].value);
     }
 }

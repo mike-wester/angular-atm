@@ -1,4 +1,4 @@
-export enum CurrencyValue {
+export enum CurrencyType {
     'hundread',
     'fifty',
     'twenty',

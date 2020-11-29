@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Currency } from 'src/interface/currency.interface';
-import { CurrencyValue } from 'src/enum/currency-value.enum';
+import { CurrencyType } from 'src/enum/currency-value.enum';
 
 @Injectable({
     providedIn: 'root'
@@ -13,13 +13,13 @@ export class AtmStateService {
 
     constructor() {
         this._currentStock = [
-            { index: CurrencyValue[CurrencyValue.hundread], value: 100, count: 10 },
-            { index: CurrencyValue[CurrencyValue.fifty], value: 50, count: 10 },
-            { index: CurrencyValue[CurrencyValue.twenty], value: 20, count: 10 },
-            { index: CurrencyValue[CurrencyValue.tens], value: 10, count: 10 },
-            { index: CurrencyValue[CurrencyValue.five], value: 5, count: 10 },
-            { index: CurrencyValue[CurrencyValue.two], value: 2, count: 10 },
-            { index: CurrencyValue[CurrencyValue.dollar], value: 1, count: 10 }
+            { index: CurrencyType[CurrencyType.hundread], value: 100, count: 10 },
+            { index: CurrencyType[CurrencyType.fifty], value: 50, count: 10 },
+            { index: CurrencyType[CurrencyType.twenty], value: 20, count: 10 },
+            { index: CurrencyType[CurrencyType.tens], value: 10, count: 10 },
+            { index: CurrencyType[CurrencyType.five], value: 5, count: 10 },
+            { index: CurrencyType[CurrencyType.two], value: 2, count: 10 },
+            { index: CurrencyType[CurrencyType.dollar], value: 1, count: 10 }
         ];
 
         this._currentStockSubject.next(this._currentStock);
@@ -27,8 +27,8 @@ export class AtmStateService {
 
     public getCurrentStock(): Observable<Currency[]> { return this._currentStockSubject.asObservable(); }
 
-    public addStock(currencyValue: CurrencyValue, amount: number): boolean {
-        this._currentStock[currencyValue].count += amount;
+    public addStock(currencyType: CurrencyType, amount: number): boolean {
+        this._currentStock[currencyType].count += amount;
         this._currentStockSubject.next(this._currentStock);
         return true;
     }
