@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Currency } from 'src/interface/currency.interface';
-import { CurrencyType } from 'src/enum/currency-value.enum';
+import { CurrencyType } from 'src/enum/currency-type.enum';
 
 @Injectable({
     providedIn: 'root'

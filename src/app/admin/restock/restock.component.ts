@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AtmHistoryService } from 'src/services/atm-history/atm-history.service';
 import { AtmStateService } from 'src/services/atm-state/atm-state.service';
-import { CurrencyType } from 'src/enum/currency-value.enum';
-import { TransactionHistoryType } from 'src/enum/transaction-history-type.enum';
+import { CurrencyType, TransactionHistoryType } from 'src/enum/index.enum';
 
 @Component({
     selector: 'app-restock',
@@ -27,6 +26,7 @@ export class RestockComponent implements OnInit {
             amountTwenty: new FormControl(0, Validators.min(0)),
             amountTen: new FormControl(0, Validators.min(0)),
             amountFive: new FormControl(0, Validators.min(0)),
+            amountTwo: new FormControl(0, Validators.min(0)),
             amountOne: new FormControl(0, Validators.min(0))
         });
     }
@@ -46,6 +46,7 @@ export class RestockComponent implements OnInit {
                 'Twenties restocked: ' + this.restockForm.controls['amountTwenty'].value + ' ' +
                 'Tens restocked: ' + this.restockForm.controls['amountTen'].value + ' ' +
                 'Fives restocked: ' + this.restockForm.controls['amountFive'].value + ' ' +
+                'Twos restocked: ' + this.restockForm.controls['amountTwo'].value + ' ' +
                 'Dolalrs restocked: ' + this.restockForm.controls['amountOne'].value,
             date: new Date()
         });
@@ -57,6 +58,7 @@ export class RestockComponent implements OnInit {
         this.restockForm.controls['amountTwenty'].setValue(0);
         this.restockForm.controls['amountTen'].setValue(0);
         this.restockForm.controls['amountFive'].setValue(0);
+        this.restockForm.controls['amountTwo'].setValue(0);
         this.restockForm.controls['amountOne'].setValue(0);
     }
 
@@ -66,6 +68,7 @@ export class RestockComponent implements OnInit {
         this.atmStateService.addStock(CurrencyType.twenty, this.restockForm.controls['amountTwenty'].value);
         this.atmStateService.addStock(CurrencyType.tens, this.restockForm.controls['amountTen'].value);
         this.atmStateService.addStock(CurrencyType.five, this.restockForm.controls['amountFive'].value);
+        this.atmStateService.addStock(CurrencyType.two, this.restockForm.controls['amountTwo'].value);
         this.atmStateService.addStock(CurrencyType.dollar, this.restockForm.controls['amountOne'].value);
     }
 }
