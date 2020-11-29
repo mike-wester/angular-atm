@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AtmHistoryService } from 'src/services/atm-history/atm-history.service';
-import { AtmStateService } from 'src/services/atm-state/atm-state.service';
-import { TransactionHistoryType } from 'src/enum/transaction-history-type.enum';
+import { TransactionHistoryType } from 'src/enum/index.enum';
+import { UserStateService } from 'src/services/user-state/user-state.service';
 
 @Component({
     selector: 'app-login',
@@ -18,22 +19,30 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private atmHistoryService: AtmHistoryService,
-        private atmStateService: AtmStateService
+        private router: Router,
+        private userStateService: UserStateService
     ) { }
 
     ngOnInit(): void {
         this.loginForm = new FormGroup({
-            userName: new FormControl(0, Validators.required),
-            password: new FormControl(0, Validators.required)
+            userName: new FormControl(null, Validators.required),
+            password: new FormControl(null, Validators.required)
         });
     }
 
     public processLogin(): void {
         this.userName = this.loginForm.controls['userName'].value;
         this.password = this.loginForm.controls['password'].value;
-        //this.loginSuccessFull = this.atmStateService.processLogin(this.userName, this.password)
+        this.loginSuccessFull = this.userStateService.processLogin(this.userName, this.password)
+
         this.logHistory();
-        this.loginForm.controls['loginAmount'].setValue(0);
+
+        this.loginForm.controls['userName'].setValue(null);
+        this.loginForm.controls['password'].setValue(null);
+
+        if (this.loginSuccessFull) {
+            this.router.navigate(['admin-landing']);
+        }
     }
 
     private logHistory(): void {
