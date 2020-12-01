@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.controls['password'].setValue(null);
 
         if (this.loginSuccessFull) {
+            this.loginSuccessFull = null;
             this.router.navigate(['admin-landing']);
         }
     }
