@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
+## Current Startup Users for Testing
+
+username: 'Doctor.Strange@gmail.com', password: 'abc123!!', userType: UserType.basic
+username: 'Scott.Lang@gmail.com', password: 'abc123!!', userType: UserType.basic
+username: 'Tony.Stark@gmail.com', password: 'abc123!!', userType: UserType.admin
+username: 'Bruce.Banner@gmail.com', password: 'abc123!!', userType: UserType.admin
+username: 'Steve.Rogers@gmail.com', password: 'abc123!!', userType: UserType.super
+username: 'Natasha.Romanoff@gmail.com', password: 'abc123!!', userType: UserType.super
+
 ## Future Changes
 
 • Seperate out basic users and admin users

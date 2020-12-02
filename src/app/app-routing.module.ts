@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLandingComponent } from 'src/app/admin/admin-landing/admin-landing.component';
-import { LoginComponent } from 'src/app/login/login/login.component';
-import { OverviewComponent } from 'src/app/admin/overview/overview.component';
-import { RestockComponent } from 'src/app/admin/restock/restock.component';
-import { WithdrawComponent } from 'src/app/user/withdraw/withdraw.component';
+import { AdminLandingComponent } from 'src/app/wwwroot/admin/admin-landing/admin-landing.component';
+import { LoginComponent } from 'src/app/wwwroot/login/login.component';
+import { OverviewComponent } from 'src/app/wwwroot/admin/overview/overview.component';
+import { RestockComponent } from 'src/app/wwwroot/admin/restock/restock.component';
+import { WithdrawComponent } from 'src/app/wwwroot/user/withdraw/withdraw.component';
 
 const routes: Routes = [
     {
