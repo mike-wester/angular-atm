@@ -1,0 +1,52 @@
+<form [formGroup]="restockForm" (submit)="restock()" class="atm-restock">
+    <h3 class="page-header">Restock the ATM</h3>
+    <div class='restock-success' *ngIf='restockSuccessFull'>Congradulations Restock Successful!</div>
+    <h5 class="page-header">Restock with:</h5>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$100.00</span>
+        </div>
+        <input type="number" formControlName='amountHundread' class="form-control" aria-label="Hundreads">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$50.00</span>
+        </div>
+        <input type="number" formControlName='amountFifty' class="form-control" aria-label="Fifties">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$20.00</span>
+        </div>
+        <input type="number" formControlName='amountTwenty' class="form-control" aria-label="Twenties">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$10.00</span>
+        </div>
+        <input type="number" formControlName='amountTen' class="form-control" aria-label="Tens">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$5.00</span>
+        </div>
+        <input type="number" formControlName='amountFive' class="form-control" aria-label="Fives">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$2.00</span>
+        </div>
+        <input type="number" formControlName='amountTwo' class="form-control" aria-label="Twos">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$1.00</span>
+        </div>
+        <input type="number" formControlName='amountOne' class="form-control" aria-label="Ones">
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <button class="btn btn-primary" type="submit">Process</button>
+        </div>
+    </div>
+</form>

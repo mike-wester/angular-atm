@@ -13,6 +13,7 @@ import { RestockComponent } from './wwwroot/admin/restock/restock.component';
 import { TransactionHistoryComponent } from './wwwroot/admin/transaction-history/transaction-history.component';
 import { UserLandingComponent } from './wwwroot/user/user-landing/user-landing.component';
 import { WithdrawComponent } from './wwwroot/user/withdraw/withdraw.component';
+import { ShowHideInput } from './directives/show-hide-input.directive';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { WithdrawComponent } from './wwwroot/user/withdraw/withdraw.component';
         RestockComponent,
         TransactionHistoryComponent,
         UserLandingComponent,
-        WithdrawComponent
+        WithdrawComponent,
+        ShowHideInput
     ],
     imports: [
         AppRoutingModule,

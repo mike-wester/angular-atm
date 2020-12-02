@@ -1,0 +1,15 @@
+<div class="atm-overview">
+    <h3>Transaction Overview/History</h3>
+    <div class="row">
+        <h5 class='col-sm-3'>Type</h5>
+        <h5 class='col-sm-6'>Message</h5>
+        <h5 class='col-sm-3'>Date</h5>
+    </div>
+    <div *ngFor="let transaction of atmHistoryService.getTransactionHistory() | async">
+        <div class="row">
+            <span class='col-sm-3' style="text-transform:uppercase">{{transaction.type}}</span>
+            <span class='col-sm-6'>{{transaction.message}}</span>
+            <span class='col-sm-3'>{{transaction.date}}</span>
+        </div>
+    </div>
+</div>

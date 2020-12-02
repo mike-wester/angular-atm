@@ -1,0 +1,41 @@
+$base-color: #3498db;
+$text: #74808a;
+
+footer {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.copyright {
+    padding-top: 20px;
+
+    p {
+        margin: 0;
+        color: 000;
+    }
+}
+
+.social {
+    text-align: right;
+
+    ul {
+        margin: 5px 0 0 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        font-size: 1.25em;
+        list-style: none;
+    }
+
+    a {
+        display: block;
+        color: $text;
+        padding: 10px;
+
+        &:hover {
+            color: $base-color;
+        }
+    }
+}
