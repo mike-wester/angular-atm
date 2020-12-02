@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     public userName: string = null;
     public password: string = null;
     public loginForm: FormGroup;
-    public loginSuccessFull: Boolean = null
+    public loginSuccessFull: Boolean = null;
 
     constructor(
         private atmHistoryService: AtmHistoryService,

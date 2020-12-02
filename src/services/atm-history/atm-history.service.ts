@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TransactionHistory } from 'src/interface/transaction-history';
+import { TransactionHistory } from 'src/interface/transaction-history.interface';
 
 @Injectable({
     providedIn: 'root'
