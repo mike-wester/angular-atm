@@ -15,25 +15,25 @@ import { UserLandingComponent } from './user/user-landing/user-landing.component
 import { WithdrawComponent } from './user/withdraw/withdraw.component';
 
 @NgModule({
-  declarations: [
-    AdminLandingComponent,
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    LoginComponent,
-    OverviewComponent,
-    RestockComponent,
-    TransactionHistoryComponent,
-    UserLandingComponent,
-    WithdrawComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AdminLandingComponent,
+        AppComponent,
+        FooterComponent,
+        HeaderComponent,
+        LoginComponent,
+        OverviewComponent,
+        RestockComponent,
+        TransactionHistoryComponent,
+        UserLandingComponent,
+        WithdrawComponent
+    ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
