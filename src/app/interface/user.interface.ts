@@ -4,6 +4,7 @@ export interface User {
     username: string,
     password: string,
     userType: UserType,
-    firstName: string,
-    lastName: string
+    firstName?: string,
+    lastName?: string,
+    accountBalance?: number
 }

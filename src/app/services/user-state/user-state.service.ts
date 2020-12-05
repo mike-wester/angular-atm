@@ -14,12 +14,12 @@ export class UserStateService {
 
     constructor() {
         this._currentUserList = [
-            { username: 'Doctor.Strange@gmail.com', password: 'abc123!!', userType: UserType.basic, firstName: 'Strange', lastName: 'Doctor' },
-            { username: 'Scott.Lang@gmail.com', password: 'abc123!!', userType: UserType.basic, firstName: 'Lang', lastName: 'Scott' },
-            { username: 'Tony.Stark@gmail.com', password: 'abc123!!', userType: UserType.admin, firstName: 'Stark', lastName: 'Tony' },
-            { username: 'Bruce.Banner@gmail.com', password: 'abc123!!', userType: UserType.admin, firstName: 'Banner', lastName: 'Bruce' },
-            { username: 'Steve.Rogers@gmail.com', password: 'abc123!!', userType: UserType.super, firstName: 'Rogers', lastName: 'Steve' },
-            { username: 'Natasha.Romanoff@gmail.com', password: 'abc123!!', userType: UserType.super, firstName: 'Romanoff', lastName: 'Natasha' }
+            { username: 'Doctor.Strange@gmail.com', password: 'abc123!!', userType: UserType.basic, firstName: 'Strange', lastName: 'Doctor', accountBalance: 1000000 },
+            { username: 'Scott.Lang@gmail.com', password: 'abc123!!', userType: UserType.basic, firstName: 'Lang', lastName: 'Scott', accountBalance: 2000 },
+            { username: 'Tony.Stark@gmail.com', password: 'abc123!!', userType: UserType.admin, firstName: 'Stark', lastName: 'Tony', accountBalance: 1000000000 },
+            { username: 'Bruce.Banner@gmail.com', password: 'abc123!!', userType: UserType.admin, firstName: 'Banner', lastName: 'Bruce', accountBalance: 500000 },
+            { username: 'Steve.Rogers@gmail.com', password: 'abc123!!', userType: UserType.super, firstName: 'Rogers', lastName: 'Steve', accountBalance: 250000 },
+            { username: 'Natasha.Romanoff@gmail.com', password: 'abc123!!', userType: UserType.super, firstName: 'Romanoff', lastName: 'Natasha', accountBalance: 6500000 }
         ];
     }
 

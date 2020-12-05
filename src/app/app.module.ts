@@ -14,6 +14,10 @@ import { TransactionHistoryComponent } from './wwwroot/admin/transaction-history
 import { UserLandingComponent } from './wwwroot/user/user-landing/user-landing.component';
 import { WithdrawComponent } from './wwwroot/user/withdraw/withdraw.component';
 import { ShowHideInput } from './directives/show-hide-input.directive';
+import { HistoryComponent } from './wwwroot/user/history/history.component';
+import { LandingComponent } from './wwwroot/user/landing/landing.component';
+import { DepositComponent } from './wwwroot/user/deposit/deposit.component';
+import { PageNotFoundComponent } from './wwwroot/shared/page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +31,11 @@ import { ShowHideInput } from './directives/show-hide-input.directive';
         TransactionHistoryComponent,
         UserLandingComponent,
         WithdrawComponent,
-        ShowHideInput
+        ShowHideInput,
+        HistoryComponent,
+        LandingComponent,
+        DepositComponent,
+        PageNotFoundComponent
     ],
     imports: [
         AppRoutingModule,
