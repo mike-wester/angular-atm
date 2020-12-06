@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLandingComponent } from 'src/app/wwwroot/admin/admin-landing/admin-landing.component';
 import { LoginComponent } from 'src/app/wwwroot/login/login.component';
 import { OverviewComponent } from 'src/app/wwwroot/admin/overview/overview.component';
-import { RestockComponent } from 'src/app/wwwroot/admin/restock/restock.component';
 import { PageNotFoundComponent } from 'src/app/wwwroot/shared/page-not-found/page-not-found.component'
+import { RestockComponent } from 'src/app/wwwroot/admin/restock/restock.component';
+import { UserLandingComponent } from 'src/app/wwwroot/user/user-landing/user-landing.component';
 import { WithdrawComponent } from 'src/app/wwwroot/user/withdraw/withdraw.component';
 
 const routes: Routes = [
@@ -13,7 +14,15 @@ const routes: Routes = [
         component: LoginComponent,
     },
     {
+        path: 'user-landing',
+        component: UserLandingComponent,
+    },
+    {
         path: 'admin-landing',
+        component: AdminLandingComponent,
+    },
+    {
+        path: 'super-landing',
         component: AdminLandingComponent,
     },
     {
