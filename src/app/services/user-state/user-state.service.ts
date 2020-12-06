@@ -34,4 +34,11 @@ export class UserStateService {
 
         return false;
     }
+
+    public processLogout(): boolean {
+        this._currentUser;
+        this._currentUserSubject.next(this._currentUser);
+
+        return true;
+    }
 }

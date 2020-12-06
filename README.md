@@ -12,7 +12,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 | Bruce.Banner@gmail.com      |  abc123!!  |  UserType.admin  | 500000          |
 | Steve.Rogers@gmail.com      |  abc123!!  |  UserType.super  | 250000          |
 | Natasha.Romanoff@gmail.com  |  abc123!!  |  UserType.super  | 6500000         |
-|-----------------------------|------------|------------------|-----------------|
 
 ## Future Changes
 
