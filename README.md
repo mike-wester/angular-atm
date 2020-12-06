@@ -4,12 +4,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Current Startup Users for Testing
 
-username: 'Doctor.Strange@gmail.com', password: 'abc123!!', userType: UserType.basic
-username: 'Scott.Lang@gmail.com', password: 'abc123!!', userType: UserType.basic
-username: 'Tony.Stark@gmail.com', password: 'abc123!!', userType: UserType.admin
-username: 'Bruce.Banner@gmail.com', password: 'abc123!!', userType: UserType.admin
-username: 'Steve.Rogers@gmail.com', password: 'abc123!!', userType: UserType.super
-username: 'Natasha.Romanoff@gmail.com', password: 'abc123!!', userType: UserType.super
+|          User Name          |  Password  |    User Type     | Account Balance |
+|-----------------------------|------------|------------------|-----------------|
+| Doctor.Strange@gmail.com    |  abc123!!  |  UserType.basic  | 1000000         |
+| Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 2000            |
+| Tony.Stark@gmail.com        |  abc123!!  |  UserType.admin  | 1000000000      |
+| Bruce.Banner@gmail.com      |  abc123!!  |  UserType.admin  | 500000          |
+| Steve.Rogers@gmail.com      |  abc123!!  |  UserType.super  | 250000          |
+| Natasha.Romanoff@gmail.com  |  abc123!!  |  UserType.super  | 6500000         |
+|-----------------------------|------------|------------------|-----------------|
 
 ## Future Changes
 
