@@ -24,6 +24,7 @@ const routes: Routes = [
             { path: 'user-current', component: UserBalanceComponent },
             { path: 'user-deposit', component: DepositComponent },
             { path: 'user-withdrwal', component: WithdrawComponent },
+            { path: '', redirectTo: 'user-history', pathMatch: 'full' }
         ]
     },
     {
@@ -44,7 +45,7 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/login',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {
