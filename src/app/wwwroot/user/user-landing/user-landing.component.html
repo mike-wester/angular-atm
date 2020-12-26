@@ -2,23 +2,23 @@
     <h3 class="page-header">User Dashboard</h3>
     <div class='row'>
         <div class='col text-center'>
-            <button class='btn btn-primary' type='button' (click)='routeToChild("history")'>History</button>
+            <button class='btn btn-primary' type='button' routerLink='user-history'>History</button>
         </div>
     </div>
     <div class='row'>
         <div class='col text-center'>
-            <button class='btn btn-primary' type='button' (click)='routeToChild("current")'>Current
-                Balance</button>
+            <button class='btn btn-primary' type='button' routerLink='user-current'>Current Balance</button>
         </div>
     </div>
     <div class='row'>
         <div class='col text-center'>
-            <button class='btn btn-primary' type='button' (click)='routeToChild("deposit")'>Deposit</button>
+            <button class='btn btn-primary' type='button' routerLink='user-deposit'>Deposit</button>
         </div>
     </div>
     <div class='row'>
         <div class='col text-center'>
-            <button class='btn btn-primary' type='button' (click)='routeToChild("withdrawl")'>Withdrawl</button>
+            <button class='btn btn-primary' type='button' routerLink='user-withdrwal'>Withdrawl</button>
         </div>
     </div>
+    <router-outlet></router-outlet>
 </div>
