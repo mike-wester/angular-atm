@@ -8,12 +8,12 @@ import { UserType } from 'src/app/enum/index.enum';
 })
 export class UserStateService {
 
-    private _currentUser: User = null;
-    private _currentUserList: User[] = [];
-    private _currentUserSubject: BehaviorSubject<User> = new BehaviorSubject(null);
+    private _currentUser: User = undefined;
+    private _userList: User[] = [];
+    private _currentUserSubject: BehaviorSubject<User> = new BehaviorSubject(undefined);
 
     constructor() {
-        this._currentUserList = [
+        this._userList = [
             { id: '52ec7d7a-9a06-4b33-a57d-7ff32fe6d48c', username: 'Doctor.Strange@gmail.com', password: 'abc123!!', userType: UserType.basic, firstName: 'Strange', lastName: 'Doctor', accountBalance: 1000000 },
             { id: '44dbbd9a-e057-4a60-be06-811317c33635', username: 'Scott.Lang@gmail.com', password: 'abc123!!', userType: UserType.basic, firstName: 'Lang', lastName: 'Scott', accountBalance: 2000 },
             { id: '4729b96a-3b54-4b1e-a010-1a7c04cd59f8', username: 'Tony.Stark@gmail.com', password: 'abc123!!', userType: UserType.admin, firstName: 'Stark', lastName: 'Tony', accountBalance: 1000000000 },
@@ -26,8 +26,8 @@ export class UserStateService {
     public getCurrentUser(): Observable<User> { return this._currentUserSubject.asObservable(); }
 
     public processLogin(username: string, password: string): boolean {
-        if (username !== null && password !== null && this._currentUserList.filter((user) => user.username === username && user.password === password).length === 1) {
-            this._currentUser = this._currentUserList.filter((user) => user.username === username && user.password === password)[0];
+        this._currentUser = this._userList.find((user) => user.username === username && user.password === password);
+        if (!!this._currentUser) {
             this._currentUserSubject.next(this._currentUser);
             return true;
         }
@@ -36,7 +36,7 @@ export class UserStateService {
     }
 
     public processLogout(): boolean {
-        this._currentUser = null;
+        this._currentUser = undefined;
         this._currentUserSubject.next(this._currentUser);
 
         return true;

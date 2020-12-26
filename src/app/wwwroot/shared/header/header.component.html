@@ -1,9 +1,22 @@
 <nav class="navbar">
     <div class="navbar-menu">
         <div class="navbar-start">
+            <a class="navbar-item" routerLink="user-history" routerLinkActive="active">History</a>
+            <a class="navbar-item" routerLink="user-current" routerLinkActive="active">Current Balance</a>
+            <a class="navbar-item" routerLink="user-deposit" routerLinkActive="active">Deposit Into Account</a>
+            <a class="navbar-item" routerLink="user-withdrwal" routerLinkActive="active">Withdraw From Account</a>
+        </div>
+        <div class="navbar-start">
             <a class="navbar-item" routerLink="admin-landing" routerLinkActive="active">Home</a>
             <a class="navbar-item" routerLink="overview" routerLinkActive="active">Overview</a>
             <a class="navbar-item" routerLink="restock" routerLinkActive="active">Restock</a>
+        </div>
+        <div class="navbar-start">
+            <a class="navbar-item" routerLink="admin-landing" routerLinkActive="active">Home</a>
+            <a class="navbar-item" routerLink="overview" routerLinkActive="active">Overview</a>
+            <a class="navbar-item" routerLink="restock" routerLinkActive="active">Restock</a>
+        </div>
+        <div class="navbar-end">
             <button class="btn btn-outline-dark navbar-end" type="button" (click)=logoutUser()>Logout</button>
         </div>
     </div>
