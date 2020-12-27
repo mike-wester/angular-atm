@@ -1,3 +1,3 @@
-export { Currency } from './currency.interface';
-export { TransactionHistory } from './transaction-history.interface';
-export { User } from './user.interface';
+export { ICurrency } from './currency.interface';
+export { ITransactionHistory } from './transaction-history.interface';
+export { IUser } from './user.interface';

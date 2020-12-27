@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TransactionHistory } from 'src/app/interface/transaction-history.interface';
+
+import { TransactionHistory } from 'src/app/class/transaction-history';
 
 @Injectable({
     providedIn: 'root'
@@ -8,15 +9,21 @@ import { TransactionHistory } from 'src/app/interface/transaction-history.interf
 export class AtmHistoryService {
 
     private _transactionHistory: TransactionHistory[] = [];
-    private _behaviorSubject: BehaviorSubject<TransactionHistory[]> = new BehaviorSubject(null);
+    private _transactionHistorySubject: BehaviorSubject<TransactionHistory[]> = new BehaviorSubject(null);
 
-    constructor() { }
+    constructor(
+    ) { }
 
-    public getTransactionHistory(): Observable<TransactionHistory[]> { return this._behaviorSubject.asObservable(); }
+    public getTransactionHistory = (): Observable<TransactionHistory[]> => this._transactionHistorySubject.asObservable();
+    public getUserTransactionHistory = (userId: string): TransactionHistory[] => {
+        console.log('_transactionHistory: ', this._transactionHistory);
+        return this._transactionHistory.filter((t: TransactionHistory) => t.userId === userId);
+    }
 
     public addHistory(transactionHistory: TransactionHistory): boolean {
         this._transactionHistory.push(transactionHistory);
-        this._behaviorSubject.next(this._transactionHistory);
+        this._transactionHistorySubject.next(this._transactionHistory);
+
         return true;
     }
 }

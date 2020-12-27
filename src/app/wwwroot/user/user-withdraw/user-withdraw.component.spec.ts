@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { WithdrawComponent } from './withdraw.component';
+import { UserWithdrawComponent } from './user-withdraw.component';
 
-describe('WithdrawComponent', () => {
-    let component: WithdrawComponent;
-    let fixture: ComponentFixture<WithdrawComponent>;
+describe('UserWithdrawComponent', () => {
+    let component: UserWithdrawComponent;
+    let fixture: ComponentFixture<UserWithdrawComponent>;
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [WithdrawComponent]
+            declarations: [UserWithdrawComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(WithdrawComponent);
+        fixture = TestBed.createComponent(UserWithdrawComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

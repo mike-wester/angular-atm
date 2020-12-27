@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Currency } from 'src/app/interface/index.interface';
+import { ICurrency } from 'src/app/interface/index.interface';
 import { CurrencyType } from 'src/app/enum/currency-type.enum';
 
 @Injectable({
@@ -8,8 +8,8 @@ import { CurrencyType } from 'src/app/enum/currency-type.enum';
 })
 export class AtmStateService {
 
-    private _currentStock: Currency[] = [];
-    private _currentStockSubject: BehaviorSubject<Currency[]> = new BehaviorSubject(null);
+    private _currentStock: ICurrency[] = [];
+    private _currentStockSubject: BehaviorSubject<ICurrency[]> = new BehaviorSubject(null);
 
     constructor() {
         this._currentStock = [
@@ -25,7 +25,7 @@ export class AtmStateService {
         this._currentStockSubject.next(this._currentStock);
     }
 
-    public getCurrentStock(): Observable<Currency[]> { return this._currentStockSubject.asObservable(); }
+    public getCurrentStock(): Observable<ICurrency[]> { return this._currentStockSubject.asObservable(); }
 
     public addStock(currencyType: CurrencyType, amount: number): boolean {
         this._currentStock[currencyType].count += amount;
@@ -37,7 +37,7 @@ export class AtmStateService {
 
         var inventoryUsed: number[] = [];
 
-        this._currentStock.forEach((currentCurrency: Currency, index: number) => {
+        this._currentStock.forEach((currentCurrency: ICurrency, index: number) => {
             inventoryUsed.push(this.checkStock(amount, currentCurrency.value));
             amount -= inventoryUsed[index] * currentCurrency.value;
         });

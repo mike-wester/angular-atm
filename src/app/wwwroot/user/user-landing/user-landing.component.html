@@ -1,4 +1,14 @@
 <div class="atm-user-landing">
     <h3 class="page-header">User Experience</h3>
+    <nav class="navbar">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" routerLink="user-balance" routerLinkActive="active">Current Balance</a>
+                <a class="navbar-item" routerLink="user-history" routerLinkActive="active">History</a>
+                <a class="navbar-item" routerLink="user-deposit" routerLinkActive="active">Deposit Into Account</a>
+                <a class="navbar-item" routerLink="user-withdrwal" routerLinkActive="active">Withdraw From Account</a>
+            </div>
+        </div>
+    </nav>
     <router-outlet></router-outlet>
 </div>

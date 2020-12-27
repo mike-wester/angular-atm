@@ -6,7 +6,8 @@ import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.serv
 import { ShowHideInput } from 'src/app/directives/show-hide-input.directive';
 import { TransactionHistoryType, UserType } from 'src/app/enum/index.enum';
 import { UserStateService } from 'src/app/services/user-state/user-state.service';
-import { User } from 'src/app/interface/user.interface';
+import { IUser } from 'src/app/interface/user.interface';
+import { TransactionHistory } from 'src/app/class/transaction-history';
 
 @Component({
     selector: 'app-login',
@@ -15,14 +16,14 @@ import { User } from 'src/app/interface/user.interface';
 })
 export class LoginComponent implements OnInit {
 
-    public userName: string = null;
+    private _currentUser: IUser;
+
     public password: string = null;
     public show: boolean = false;
-
+    public userName: string = null;
     public loginForm: FormGroup;
-    public loginSuccessFull: Boolean = null;
 
-    private _currentUser: User;
+    public get currentUser() { return this._currentUser };
 
     @ViewChild(ShowHideInput) input: ShowHideInput;
     constructor(
@@ -36,24 +37,19 @@ export class LoginComponent implements OnInit {
             userName: new FormControl(null, Validators.required),
             password: new FormControl(null, Validators.required)
         });
-
-        this.userStateService.getCurrentUser().pipe(
-            tap((user: User) => this._currentUser = user)
-        ).subscribe();
     }
 
     public processLogin(): void {
         this.userName = this.loginForm.controls['userName'].value;
         this.password = this.loginForm.controls['password'].value;
-        this.loginSuccessFull = this.userStateService.processLogin(this.userName, this.password)
+        this._currentUser = this.userStateService.processLogin(this.userName, this.password)
 
         this.logHistory();
 
         this.loginForm.controls['userName'].setValue(null);
         this.loginForm.controls['password'].setValue(null);
 
-        if (this.loginSuccessFull) {
-            this.loginSuccessFull = null;
+        if (!!this._currentUser) {
             this.processLoginRouting();
         }
     }
@@ -69,11 +65,11 @@ export class LoginComponent implements OnInit {
     }
 
     private logHistory(): void {
-        this.atmHistoryService.addHistory({
+        this.atmHistoryService.addHistory(new TransactionHistory({
+            userId: !!this._currentUser ? this._currentUser.id : undefined,
             type: TransactionHistoryType[TransactionHistoryType.login],
-            message: 'Attempt to Login of ' + this.userName + ((this.loginSuccessFull) ? ' was successful' : ' failed, invalid Username/Password'),
-            date: new Date()
-        });
+            message: 'Attempt to Login of ' + this.userName + ((!!this._currentUser) ? ' was successful' : ' failed, invalid Username/Password')
+        }));
     }
 
     private processLoginRouting(): void {

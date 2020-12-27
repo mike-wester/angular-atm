@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AtmStateService } from 'src/app/services/atm-state/atm-state.service';
 
 @Component({

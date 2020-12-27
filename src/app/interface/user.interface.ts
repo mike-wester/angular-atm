@@ -1,6 +1,6 @@
 import { UserType } from 'src/app/enum/index.enum';
 
-export interface User {
+export interface IUser {
     id: string,
     username: string,
     password: string,

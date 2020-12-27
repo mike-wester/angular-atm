@@ -1,7 +1,7 @@
 <form [formGroup]='loginForm' (submit)='processLogin()' class='atm-login'>
     <h3 class='page-header'>Welcome to BenderCO's ATM</h3>
-    <div class='login-processing' *ngIf='loginSuccessFull'>Processing</div>
-    <div class='login-fail' *ngIf='loginSuccessFull !== null && !loginSuccessFull'>Invalid Username/Password Combination
+    <div class='login-processing' *ngIf='!!currentUser'>Processing</div>
+    <div class='login-fail' *ngIf='!!currentUser'>Invalid Username/Password Combination
     </div>
     <div class='input-group mb-3'>
         <input type='string' formControlName='userName' class='form-control' placeholder='User Name'
