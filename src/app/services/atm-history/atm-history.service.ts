@@ -15,10 +15,7 @@ export class AtmHistoryService {
     ) { }
 
     public getTransactionHistory = (): Observable<TransactionHistory[]> => this._transactionHistorySubject.asObservable();
-    public getUserTransactionHistory = (userId: string): TransactionHistory[] => {
-        console.log('_transactionHistory: ', this._transactionHistory);
-        return this._transactionHistory.filter((t: TransactionHistory) => t.userId === userId);
-    }
+    public getUserTransactionHistory = (userId: string): TransactionHistory[] => this._transactionHistory.filter((t: TransactionHistory) => t.userId === userId);
 
     public addHistory(transactionHistory: TransactionHistory): boolean {
         this._transactionHistory.push(transactionHistory);
