@@ -19,15 +19,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 • Finalize basic users user experience
 
-• Finalize admin users basic experience
+• Refactor/Cleanup improve user experience
 
-• Finalize super users basic experience
+• Finalize admin basic experience
+
+• Refactor/Cleanup improve admin experience
+
+• Finalize super basic experience
+
+• Refactor/Cleanup improve super experience
+
+• Styling CSS ( *CRY* )
 
 • Update to Mobile First design pattern
 
 • Update header navigation to dropdown selection
 
+## Possible Further enhancements
+
 • Handle change as well as dollars
+• Handle other currencies
 
 ## Challenge Requirements
 

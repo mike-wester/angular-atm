@@ -47,8 +47,7 @@ export class RestockComponent implements OnInit {
                 'Tens restocked: ' + this.restockForm.controls['amountTen'].value + ' ' +
                 'Fives restocked: ' + this.restockForm.controls['amountFive'].value + ' ' +
                 'Twos restocked: ' + this.restockForm.controls['amountTwo'].value + ' ' +
-                'Dolalrs restocked: ' + this.restockForm.controls['amountOne'].value,
-            date: new Date()
+                'Dolalrs restocked: ' + this.restockForm.controls['amountOne'].value
         });
     }
 
