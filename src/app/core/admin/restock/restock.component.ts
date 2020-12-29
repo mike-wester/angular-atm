@@ -41,18 +41,18 @@ export class RestockComponent implements OnInit {
     private logHistory(): void {
         this.atmHistoryService.addHistory({
             type: TransactionHistoryType[TransactionHistoryType.restock],
-            message: 'Hundreads restocked: ' + this.restockForm.controls['amountHundread'].value + ' ' +
+            message: 'Hundreds restocked: ' + this.restockForm.controls['amountHundred'].value + ' ' +
                 'Fifties restocked: ' + this.restockForm.controls['amountFifty'].value + ' ' +
                 'Twenties restocked: ' + this.restockForm.controls['amountTwenty'].value + ' ' +
                 'Tens restocked: ' + this.restockForm.controls['amountTen'].value + ' ' +
                 'Fives restocked: ' + this.restockForm.controls['amountFive'].value + ' ' +
                 'Twos restocked: ' + this.restockForm.controls['amountTwo'].value + ' ' +
-                'Dolalrs restocked: ' + this.restockForm.controls['amountOne'].value
+                'Dollars restocked: ' + this.restockForm.controls['amountOne'].value
         });
     }
 
     private reset(): void {
-        this.restockForm.controls['amountHundread'].setValue(0);
+        this.restockForm.controls['amountHundred'].setValue(0);
         this.restockForm.controls['amountFifty'].setValue(0);
         this.restockForm.controls['amountTwenty'].setValue(0);
         this.restockForm.controls['amountTen'].setValue(0);
@@ -62,7 +62,7 @@ export class RestockComponent implements OnInit {
     }
 
     private updateInventory(): void {
-        this.atmStateService.addStock(CurrencyType.hundread, this.restockForm.controls['amountHundread'].value);
+        this.atmStateService.addStock(CurrencyType.hundred, this.restockForm.controls['amountHundred'].value);
         this.atmStateService.addStock(CurrencyType.fifty, this.restockForm.controls['amountFifty'].value);
         this.atmStateService.addStock(CurrencyType.twenty, this.restockForm.controls['amountTwenty'].value);
         this.atmStateService.addStock(CurrencyType.tens, this.restockForm.controls['amountTen'].value);

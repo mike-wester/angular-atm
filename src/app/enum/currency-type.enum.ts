@@ -1,5 +1,5 @@
 export enum CurrencyType {
-    'hundread',
+    'hundred',
     'fifty',
     'twenty',
     'tens',

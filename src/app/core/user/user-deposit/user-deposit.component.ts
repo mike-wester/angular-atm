@@ -25,7 +25,7 @@ export class UserDepositComponent implements OnInit {
     ngOnInit(): void {
         this.depositForm = new FormGroup({
             amountDeposit: new FormControl(0, Validators.min(0)),
-            amountHundread: new FormControl(0, Validators.min(0)),
+            amountHundred: new FormControl(0, Validators.min(0)),
             amountFifty: new FormControl(0, Validators.min(0)),
             amountTwenty: new FormControl(0, Validators.min(0)),
             amountTen: new FormControl(0, Validators.min(0)),
@@ -52,18 +52,18 @@ export class UserDepositComponent implements OnInit {
             type: TransactionHistoryType[TransactionHistoryType.deposit],
             message: 'Deposit ' + (this.depositSuccessFull ? 'Success' : 'Fail') + ' ' +
                 'Amount deposited: ' + this.depositForm.controls['amountDeposit'].value + ' ' +
-                'Hundreads deposited: ' + this.depositForm.controls['amountHundread'].value + ' ' +
+                'Hundred deposited: ' + this.depositForm.controls['amountHundred'].value + ' ' +
                 'Fifties deposited: ' + this.depositForm.controls['amountFifty'].value + ' ' +
                 'Twenties deposited: ' + this.depositForm.controls['amountTwenty'].value + ' ' +
                 'Tens deposited: ' + this.depositForm.controls['amountTen'].value + ' ' +
                 'Fives deposited: ' + this.depositForm.controls['amountFive'].value + ' ' +
                 'Twos deposited: ' + this.depositForm.controls['amountTwo'].value + ' ' +
-                'Dolalrs deposited: ' + this.depositForm.controls['amountOne'].value
+                'Dollars deposited: ' + this.depositForm.controls['amountOne'].value
         }));
     }
 
     private reset(): void {
-        this.depositForm.controls['amountHundread'].setValue(0);
+        this.depositForm.controls['amountHundred'].setValue(0);
         this.depositForm.controls['amountFifty'].setValue(0);
         this.depositForm.controls['amountTwenty'].setValue(0);
         this.depositForm.controls['amountTen'].setValue(0);
@@ -77,7 +77,7 @@ export class UserDepositComponent implements OnInit {
     }
 
     private updateInventory(): void {
-        this.atmStateService.addStock(CurrencyType.hundread, this.depositForm.controls['amountHundread'].value);
+        this.atmStateService.addStock(CurrencyType.hundred, this.depositForm.controls['amountHundred'].value);
         this.atmStateService.addStock(CurrencyType.fifty, this.depositForm.controls['amountFifty'].value);
         this.atmStateService.addStock(CurrencyType.twenty, this.depositForm.controls['amountTwenty'].value);
         this.atmStateService.addStock(CurrencyType.tens, this.depositForm.controls['amountTen'].value);
@@ -87,7 +87,7 @@ export class UserDepositComponent implements OnInit {
     }
 
     private validateDeposit(): boolean {
-        let temp = this.depositForm.controls['amountHundread'].value * 100 +
+        let temp = this.depositForm.controls['amountHundred'].value * 100 +
             this.depositForm.controls['amountFifty'].value * 50 +
             this.depositForm.controls['amountTwenty'].value * 20 +
             this.depositForm.controls['amountTen'].value * 10 +

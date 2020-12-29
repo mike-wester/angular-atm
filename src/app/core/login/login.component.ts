@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.service';
 import { ShowHideInput } from 'src/app/directives/show-hide-input.directive';
 import { TransactionHistoryType, UserType } from 'src/app/enum/index.enum';

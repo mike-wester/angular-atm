@@ -13,9 +13,9 @@ import { TransactionHistory } from 'src/app/class/transaction-history';
 })
 export class UserWithdrawComponent implements OnInit {
 
-    public withdrawlAmount: number = 0;
+    public withdrawalAmount: number = 0;
     public withdrawForm: FormGroup;
-    public withdrawlSuccessFull: Boolean = null
+    public withdrawalSuccessFull: Boolean = null
 
     constructor(
         private _atmHistoryService: AtmHistoryService,
@@ -25,28 +25,28 @@ export class UserWithdrawComponent implements OnInit {
 
     ngOnInit(): void {
         this.withdrawForm = new FormGroup({
-            withdrawlAmount: new FormControl([Validators.min(1), Validators.required])
+            withdrawalAmount: new FormControl([Validators.min(1), Validators.required])
         });
     }
 
-    public processWithdrawl(): void {
-        this.withdrawlAmount = this.withdrawForm.controls['withdrawlAmount'].value;
-        this.withdrawlSuccessFull = this._userStateService.withdrawlPossible(this.withdrawlAmount);
-        if (this.withdrawlSuccessFull) {
-            this.withdrawlSuccessFull = this._atmStateService.processWithdrawl(this.withdrawlAmount);
-            if (this.withdrawlSuccessFull) {
-                this._userStateService.processWithdrawl(this.withdrawlAmount)
+    public processWithdrawal(): void {
+        this.withdrawalAmount = this.withdrawForm.controls['withdrawalAmount'].value;
+        this.withdrawalSuccessFull = this._userStateService.withdrawalPossible(this.withdrawalAmount);
+        if (this.withdrawalSuccessFull) {
+            this.withdrawalSuccessFull = this._atmStateService.processWithdrawal(this.withdrawalAmount);
+            if (this.withdrawalSuccessFull) {
+                this._userStateService.processWithdrawal(this.withdrawalAmount)
             }
         }
         this.logHistory();
-        this.withdrawForm.controls['withdrawlAmount'].setValue(null);
+        this.withdrawForm.controls['withdrawalAmount'].setValue(null);
     }
 
     private logHistory(): void {
         this._atmHistoryService.addHistory(new TransactionHistory({
             userId: this._userStateService.getCurrentUser()?.id,
-            type: TransactionHistoryType[TransactionHistoryType.withdrawl],
-            message: 'Attempt to Withdraw of ' + this.withdrawlAmount + ((this.withdrawlSuccessFull) ? ' was a success' : ' failed, insufficient funds')
+            type: TransactionHistoryType[TransactionHistoryType.withdrawal],
+            message: 'Attempt to Withdraw of ' + this.withdrawalAmount + ((this.withdrawalSuccessFull) ? ' was a success' : ' failed, insufficient funds')
         }));
     }
 }

@@ -1,14 +1,14 @@
-<form [formGroup]="withdrawForm" (submit)="processWithdrawl()" class="atm-withdraw">
+<form [formGroup]="withdrawForm" (submit)="processWithdrawal()" class="atm-withdraw">
     <h3 class='page-header'>Withdraw from the ATM</h3>
-    <div class='withdraw-success' *ngIf='withdrawlSuccessFull !== null && withdrawlSuccessFull'>Dispensed
-        {{withdrawlAmount}}</div>
-    <div class='withdraw-fail' *ngIf='withdrawlSuccessFull !== null && !withdrawlSuccessFull'>Insufficient Funds</div>
+    <div class='withdraw-success' *ngIf='withdrawalSuccessFull !== null && withdrawalSuccessFull'>Dispensed
+        {{withdrawalAmount}}</div>
+    <div class='withdraw-fail' *ngIf='withdrawalSuccessFull !== null && !withdrawalSuccessFull'>Insufficient Funds</div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">$</span>
         </div>
-        <input type="number" formControlName='withdrawlAmount' class="form-control"
+        <input type="number" formControlName='withdrawalAmount' class="form-control"
             aria-label="Amount (to the nearest dollar)">
         <div class="input-group-append">
             <span class="input-group-text">.00</span>

@@ -23,7 +23,7 @@ const routes: Routes = [
             { path: 'user-balance', component: UserBalanceComponent },
             { path: 'user-deposit', component: UserDepositComponent },
             { path: 'user-history', component: UserHistoryComponent },
-            { path: 'user-withdrwal', component: UserWithdrawComponent },
+            { path: 'user-withdrawal', component: UserWithdrawComponent },
             { path: '', redirectTo: 'user-balance', pathMatch: 'full' },
         ]
     },
