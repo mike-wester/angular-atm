@@ -36,22 +36,22 @@ export class UserDepositComponent implements OnInit {
     }
 
     public deposit(): void {
-        if (this.validateDeposit()) {
+        this.depositSuccessFull = this.validateDeposit();
+        if (this.depositSuccessFull) {
             this.updateInventory();
             this.updateAccount();
-            this.depositSuccessFull = true;
-            this.logHistory();
-            this.reset();
-        } else {
-            this.depositSuccessFull = false;
         }
+
+        this.logHistory();
+        this.reset();
     }
 
     private logHistory(): void {
         this.atmHistoryService.addHistory(new TransactionHistory({
             userId: this.userStateService.getCurrentUser().id,
             type: TransactionHistoryType[TransactionHistoryType.deposit],
-            message: 'Amount deposited: ' + this.depositForm.controls['amountDeposit'].value + ' ' +
+            message: 'Deposit ' + (this.depositSuccessFull ? 'Success' : 'Fail') + ' ' +
+                'Amount deposited: ' + this.depositForm.controls['amountDeposit'].value + ' ' +
                 'Hundreads deposited: ' + this.depositForm.controls['amountHundread'].value + ' ' +
                 'Fifties deposited: ' + this.depositForm.controls['amountFifty'].value + ' ' +
                 'Twenties deposited: ' + this.depositForm.controls['amountTwenty'].value + ' ' +
