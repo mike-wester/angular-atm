@@ -1,10 +1,1 @@
-<div class="atm-admin-landing">
-    <h3>Welcome to Angular ATM</h3>
-    <h5>Currently we are stocked with:</h5>
-    <div class='container' *ngFor="let stock of atmStateService.getCurrentStock() | async">
-        <div class='row'>
-            <span class='col-sm-6'>Value: {{stock.value | currency:'USD':'symbol':'1.2-2'}}</span>
-            <span class='col-sm-6'>Current amount: {{stock.count}}</span>
-        </div>
-    </div>
-</div>
+<p>admin-landing works!</p>

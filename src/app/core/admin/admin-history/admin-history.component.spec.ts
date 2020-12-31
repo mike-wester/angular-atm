@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminLandingComponent } from './admin-landing.component';
+import { AdminHistoryComponent } from './admin-history.component';
 
-describe('AdminLandingComponent', () => {
-  let component: AdminLandingComponent;
-  let fixture: ComponentFixture<AdminLandingComponent>;
+describe('AdminHistoryComponent', () => {
+  let component: AdminHistoryComponent;
+  let fixture: ComponentFixture<AdminHistoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminLandingComponent ]
+      declarations: [ AdminHistoryComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminLandingComponent);
+    fixture = TestBed.createComponent(AdminHistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

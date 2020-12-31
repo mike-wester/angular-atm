@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminLandingComponent } from './admin-landing.component';
+import { SuperRestockComponent } from './super-restock.component';
 
-describe('AdminLandingComponent', () => {
-  let component: AdminLandingComponent;
-  let fixture: ComponentFixture<AdminLandingComponent>;
+describe('SuperRestockComponent', () => {
+  let component: SuperRestockComponent;
+  let fixture: ComponentFixture<SuperRestockComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminLandingComponent ]
+      declarations: [ SuperRestockComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminLandingComponent);
+    fixture = TestBed.createComponent(SuperRestockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

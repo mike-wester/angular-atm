@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AtmStateService } from 'src/app/services/atm-state/atm-state.service';
-
 @Component({
-    selector: 'app-admin-landing',
-    templateUrl: './admin-landing.component.html',
-    styleUrls: ['./admin-landing.component.scss']
+  selector: 'app-admin-landing',
+  templateUrl: './admin-landing.component.html',
+  styleUrls: ['./admin-landing.component.scss']
 })
 export class AdminLandingComponent implements OnInit {
 
-    constructor(
-        public atmStateService: AtmStateService
-    ) { }
+  constructor() { }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
+  }
 
-    }
 }

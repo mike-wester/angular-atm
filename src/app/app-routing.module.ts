@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLandingComponent } from 'src/app/core/admin/admin-landing/admin-landing.component';
+
+import { AdminHistoryComponent, AdminLandingComponent, AdminRestockComponent, AdminStockComponent } from 'src/app/core/admin/index.admin-components';
 import { LoginComponent } from 'src/app/core/login/login.component';
-import { OverviewComponent } from 'src/app/core/admin/overview/overview.component';
 import { PageNotFoundComponent } from 'src/app/core/shared/page-not-found/page-not-found.component'
-import { RestockComponent } from 'src/app/core/admin/restock/restock.component';
-import { UserBalanceComponent } from 'src/app/core/user/user-balance/user-balance.component';
-import { UserDepositComponent } from 'src/app/core/user/user-deposit/user-deposit.component';
-import { UserHistoryComponent } from 'src/app/core/user/user-history/user-history.component';
-import { UserLandingComponent } from 'src/app/core/user/user-landing/user-landing.component';
-import { UserWithdrawComponent } from 'src/app/core/user/user-withdraw/user-withdraw.component';
+import { SuperHistoryComponent, SuperLandingComponent, SuperNewUserComponent, SuperRestockComponent, SuperStockComponent } from 'src/app/core/super/index.super-components';
+import { UserBalanceComponent, UserDepositComponent, UserHistoryComponent, UserLandingComponent, UserWithdrawComponent } from 'src/app/core/user/index.user-components';
 
 const routes: Routes = [
     {
@@ -24,24 +20,29 @@ const routes: Routes = [
             { path: 'user-deposit', component: UserDepositComponent },
             { path: 'user-history', component: UserHistoryComponent },
             { path: 'user-withdrawal', component: UserWithdrawComponent },
-            { path: '', redirectTo: 'user-balance', pathMatch: 'full' },
+            { path: '', redirectTo: 'user-balance', pathMatch: 'full' }
         ]
     },
     {
         path: 'admin-landing',
-        component: AdminLandingComponent
+        component: AdminLandingComponent,
+        children: [
+            { path: 'admin-history', component: AdminHistoryComponent },
+            { path: 'admin-restock', component: AdminRestockComponent },
+            { path: 'admin-stock', component: AdminStockComponent },
+            { path: '', redirectTo: 'admin-stock', pathMatch: 'full' }
+        ]
     },
     {
         path: 'super-landing',
-        component: AdminLandingComponent
-    },
-    {
-        path: 'overview',
-        component: OverviewComponent
-    },
-    {
-        path: 'restock',
-        component: RestockComponent
+        component: SuperLandingComponent,
+        children: [
+            { path: 'super-history', component: SuperHistoryComponent },
+            { path: 'super-new-user', component: SuperNewUserComponent },
+            { path: 'admin-restock', component: SuperRestockComponent },
+            { path: 'super-stock', component: SuperStockComponent },
+            { path: '', redirectTo: 'super-stock', pathMatch: 'full' }
+        ]
     },
     {
         path: '',
