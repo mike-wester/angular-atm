@@ -5,6 +5,7 @@ import { AtmStateService } from 'src/app/services/atm-state/atm-state.service';
 import { TransactionHistoryType } from 'src/app/enum/transaction-history-type.enum';
 import { UserStateService } from 'src/app/services/user-state/user-state.service';
 import { TransactionHistory } from 'src/app/class/transaction-history';
+import { IUser } from 'src/app/interface/user.interface';
 
 @Component({
     selector: 'app-withdraw',
@@ -43,8 +44,10 @@ export class UserWithdrawComponent implements OnInit {
     }
 
     private logHistory(): void {
+        let tempUser: IUser = this._userStateService.getCurrentUser();
         this._atmHistoryService.addHistory(new TransactionHistory({
-            userId: this._userStateService.getCurrentUser()?.id,
+            userId: tempUser?.id,
+            userType: tempUser?.userType,
             type: TransactionHistoryType[TransactionHistoryType.withdrawal],
             message: 'Attempt to Withdraw of ' + this.withdrawalAmount + ((this.withdrawalSuccessFull) ? ' was a success' : ' failed, insufficient funds')
         }));

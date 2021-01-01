@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserRoute } from 'src/app/enum/index.enum';
 
 @Component({
     selector: 'app-user-landing',
@@ -8,8 +7,7 @@ import { UserRoute } from 'src/app/enum/index.enum';
 })
 export class UserLandingComponent implements OnInit {
 
-    constructor(
-    ) { }
+    constructor() { }
 
     ngOnInit(): void {
     }

@@ -1,11 +1,11 @@
-<div class="atm-user-history" *ngIf="userStateService.getCurrentUserObs() | async as user">
-    <h3>{{ user.lastName }}, Transaction History</h3>
+<div class="atm-history atm-user-history" *ngIf="userStateService.getCurrentUserObs() | async as user">
+    <h3>Transaction History</h3>
     <div class="row">
         <h5 class='col-sm-3'>Type</h5>
         <h5 class='col-sm-6'>Message</h5>
         <h5 class='col-sm-3'>Date</h5>
     </div>
-    <div *ngFor="let transaction of atmHistoryService.getUserTransactionHistory(user.id)">
+    <div *ngFor="let transaction of atmHistoryService.getUserTransactionHistoryUserType(user)">
         <div class="row">
             <span class='col-sm-3' style="text-transform:uppercase">{{transaction.type}}</span>
             <span class='col-sm-6'>{{transaction.message}}</span>

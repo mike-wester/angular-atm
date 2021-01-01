@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.service';
 import { AtmStateService } from 'src/app/services/atm-state/atm-state.service';
 import { UserStateService } from 'src/app/services/user-state/user-state.service';
+import { IUser } from 'src/app/interface/index.interface';
 import { CurrencyType, TransactionHistoryType } from 'src/app/enum/index.enum';
 import { TransactionHistory } from 'src/app/class/transaction-history';
 
@@ -19,7 +20,7 @@ export class UserDepositComponent implements OnInit {
     constructor(
         private atmHistoryService: AtmHistoryService,
         public atmStateService: AtmStateService,
-        private userStateService: UserStateService
+        private _userStateService: UserStateService
     ) { }
 
     ngOnInit(): void {
@@ -47,8 +48,10 @@ export class UserDepositComponent implements OnInit {
     }
 
     private logHistory(): void {
+        let tempUser: IUser = this._userStateService.getCurrentUser();
         this.atmHistoryService.addHistory(new TransactionHistory({
-            userId: this.userStateService.getCurrentUser().id,
+            userId: tempUser?.id,
+            userType: tempUser?.userType,
             type: TransactionHistoryType[TransactionHistoryType.deposit],
             message: 'Deposit ' + (this.depositSuccessFull ? 'Success' : 'Fail') + ' ' +
                 'Amount deposited: ' + this.depositForm.controls['amountDeposit'].value + ' ' +
@@ -73,7 +76,7 @@ export class UserDepositComponent implements OnInit {
     }
 
     private updateAccount(): void {
-        this.userStateService.getCurrentUser().accountBalance += this.depositForm.controls['amountDeposit'].value
+        this._userStateService.getCurrentUser().accountBalance += this.depositForm.controls['amountDeposit'].value
     }
 
     private updateInventory(): void {

@@ -39,7 +39,7 @@ const routes: Routes = [
         children: [
             { path: 'super-history', component: SuperHistoryComponent },
             { path: 'super-new-user', component: SuperNewUserComponent },
-            { path: 'admin-restock', component: SuperRestockComponent },
+            { path: 'super-restock', component: SuperRestockComponent },
             { path: 'super-stock', component: SuperStockComponent },
             { path: '', redirectTo: 'super-stock', pathMatch: 'full' }
         ]

@@ -1,1 +1,13 @@
-<p>admin-landing works!</p>
+<div class="atm-landing atm-admin-landing">
+    <h3 class="page-header">Admin User Experience</h3>
+    <nav class="navbar">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" routerLink="admin-stock" routerLinkActive="active">Current Inventory</a>
+                <a class="navbar-item" routerLink="admin-history" routerLinkActive="active">Transaction History</a>
+                <a class="navbar-item" routerLink="admin-restock" routerLinkActive="active">Restock Inventory</a>
+            </div>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+</div>

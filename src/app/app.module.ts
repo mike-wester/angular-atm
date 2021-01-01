@@ -9,7 +9,7 @@ import { FooterComponent } from './core/shared/footer/footer.component';
 import { HeaderComponent } from './core/shared/header/header.component';
 import { LoginComponent } from './core/login/login.component';
 import { PageNotFoundComponent } from './core/shared/page-not-found/page-not-found.component';
-import { ShowHideInput } from './directives/show-hide-input.directive';
+import { ShowHideInputDirective } from './directives/show-hide-input.directive';
 import { UserBalanceComponent } from './core/user/user-balance/user-balance.component';
 import { UserDepositComponent } from './core/user/user-deposit/user-deposit.component';
 import { UserHistoryComponent } from './core/user/user-history/user-history.component';
@@ -35,7 +35,7 @@ import { SuperStockComponent } from './core/super/super-stock/super-stock.compon
         HeaderComponent,
         LoginComponent,
         PageNotFoundComponent,
-        ShowHideInput,
+        ShowHideInputDirective,
         SuperLandingComponent,
         SuperHistoryComponent,
         SuperNewUserComponent,

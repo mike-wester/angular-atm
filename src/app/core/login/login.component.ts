@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.service';
-import { ShowHideInput } from 'src/app/directives/show-hide-input.directive';
+import { ShowHideInputDirective } from 'src/app/directives/show-hide-input.directive';
 import { TransactionHistoryType, UserType } from 'src/app/enum/index.enum';
 import { UserStateService } from 'src/app/services/user-state/user-state.service';
 import { IUser } from 'src/app/interface/user.interface';
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
     public get currentUser() { return this._currentUser };
 
-    @ViewChild(ShowHideInput) input: ShowHideInput;
+    @ViewChild(ShowHideInputDirective) input: ShowHideInputDirective;
     constructor(
         private atmHistoryService: AtmHistoryService,
         private router: Router,
@@ -65,7 +65,8 @@ export class LoginComponent implements OnInit {
 
     private logHistory(): void {
         this.atmHistoryService.addHistory(new TransactionHistory({
-            userId: !!this._currentUser ? this._currentUser.id : undefined,
+            userId: this._currentUser?.id,
+            userType: this._currentUser?.userType,
             type: TransactionHistoryType[TransactionHistoryType.login],
             message: 'Attempt to Login of ' + this.userName + ((!!this._currentUser) ? ' was successful' : ' failed, invalid Username/Password')
         }));

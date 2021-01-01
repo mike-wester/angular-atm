@@ -1,1 +1,14 @@
-<p>super-landing works!</p>
+<div class="atm-landing atm-super-landing">
+    <h3 class="page-header">Super User Experience</h3>
+    <nav class="navbar">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" routerLink="super-stock" routerLinkActive="active">Current Inventory</a>
+                <a class="navbar-item" routerLink="super-history" routerLinkActive="active">Transaction History</a>
+                <a class="navbar-item" routerLink="super-restock" routerLinkActive="active">Restock Inventory</a>
+                <a class="navbar-item" routerLink="super-new-user" routerLinkActive="active">Add New User</a>
+            </div>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+</div>

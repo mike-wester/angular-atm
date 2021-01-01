@@ -3,7 +3,7 @@ import { Directive, HostBinding } from '@angular/core';
 @Directive({
     selector: '[show-hide-input]'
 })
-export class ShowHideInput {
+export class ShowHideInputDirective {
     @HostBinding() type: string;
 
     constructor() {
