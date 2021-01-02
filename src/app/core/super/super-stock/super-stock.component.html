@@ -1,1 +1,10 @@
-<p>super-stock works!</p>
+<div class="atm-balance atm-super-balance" *ngIf="userStateService.getCurrentUserObs() | async as user">
+    <h3>Welcome {{user.lastName}}, {{user.firstName}}</h3>
+    <h5>Currently we are stocked with</h5>
+    <div class='container' *ngFor="let stock of atmStateService.getCurrentStock() | async">
+        <div class='row'>
+            <span class='col-sm-6'>Value: {{stock.value | currency:'USD':'symbol':'1.2-2'}}</span>
+            <span class='col-sm-6'>Current amount: {{stock.count}}</span>
+        </div>
+    </div>
+</div>

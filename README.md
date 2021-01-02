@@ -1,35 +1,40 @@
 # AngularAtm
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Current Startup Users for Testing
 
 |          User Name          |  Password  |    User Type     | Account Balance |
 |-----------------------------|------------|------------------|-----------------|
-| Doctor.Strange@gmail.com    |  abc123!!  |  UserType.basic  | 1000000         |
-| Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 2000            |
-| Tony.Stark@gmail.com        |  abc123!!  |  UserType.admin  | 1000000000      |
-| Bruce.Banner@gmail.com      |  abc123!!  |  UserType.admin  | 500000          |
-| Steve.Rogers@gmail.com      |  abc123!!  |  UserType.super  | 250000          |
-| Natasha.Romanoff@gmail.com  |  abc123!!  |  UserType.super  | 6500000         |
+| Doctor.Strange@gmail.com    |  abc123!!  |  UserType.basic  | 125043          |
+| Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 12354           |
+| Tony.Stark@gmail.com        |  abc123!!  |  UserType.admin  |                 |
+| Bruce.Banner@gmail.com      |  abc123!!  |  UserType.admin  |                 |
+| Steve.Rogers@gmail.com      |  abc123!!  |  UserType.super  |                 |
+| Natasha.Romanoff@gmail.com  |  abc123!!  |  UserType.super  |                 |
 
-## Future Changes
+## Change Log
 
-• ~~Seperate out basic users, admin and super users~~
+• ~~Complete Coding Challenge requirements~~
 
-• Finalize basic users user experience
 
-• Refactor/Cleanup improve user experience
+• ~~Create basic users experience flow~~
 
-• Finalize admin basic experience
+• ~~Create admin users experience flow~~
 
-• Refactor/Cleanup improve admin experience
+• ~~Create super users experience flow~~
 
-• Finalize super basic experience
+* ~~Update all experience flows to perform basic checks~~
 
-• Refactor/Cleanup improve super experience
+• Refactor/Cleanup improve user, admin, super experience
+
+• Finalize super basic experience with user add
 
 • Styling CSS ( *CRY* )
+
+• Unit tests
+
+• tsLint rules check
 
 • Update to Mobile First design pattern
 
@@ -37,10 +42,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Possible Further enhancements
 
-• Handle change as well as dollars
+• Handle change
 • Handle other currencies
 
-## Challenge Requirements
+## ~~Challenge Requirements~~
 
 Application Requirements:
 
