@@ -17,9 +17,11 @@ export class UserDepositComponent implements OnInit {
     public depositForm: FormGroup;
     public depositSuccessFull: boolean = false;
 
+    public get atmStateService(): AtmStateService { return this._atmStateService };
+
     constructor(
-        private atmHistoryService: AtmHistoryService,
-        public atmStateService: AtmStateService,
+        private _atmHistoryService: AtmHistoryService,
+        private _atmStateService: AtmStateService,
         private _userStateService: UserStateService
     ) { }
 
@@ -49,7 +51,7 @@ export class UserDepositComponent implements OnInit {
 
     private logHistory(): void {
         let tempUser: IUser = this._userStateService.getCurrentUser();
-        this.atmHistoryService.addHistory(new TransactionHistory({
+        this._atmHistoryService.addHistory(new TransactionHistory({
             userId: tempUser?.id,
             userType: tempUser?.userType,
             type: TransactionHistoryType[TransactionHistoryType.deposit],

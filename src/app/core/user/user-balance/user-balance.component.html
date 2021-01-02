@@ -1,4 +1,4 @@
-<div class="atm-user-balance" *ngIf="userStateService.getCurrentUserObs() | async as user">
+<div class="atm-balance atm-user-balance" *ngIf="userStateService.getCurrentUserObs() | async as user">
     <h3>Welcome {{user.lastName}}, {{user.firstName}}</h3>
     <h3>Current Account Value</h3>
     <div>{{user.accountBalance | currency:'USD':'symbol':'1.2-2'}}</div>
