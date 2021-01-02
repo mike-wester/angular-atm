@@ -35,7 +35,7 @@ export class AtmStateService {
 
     public processWithdrawal(amount: number): boolean {
 
-        var inventoryUsed: number[] = [];
+        let inventoryUsed: number[] = [];
 
         this._currentStock.forEach((currentCurrency: ICurrency, index: number) => {
             inventoryUsed.push(this.checkStock(amount, currentCurrency.value));
