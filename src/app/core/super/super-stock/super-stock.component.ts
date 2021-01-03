@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { AtmStateService } from 'src/app/services/atm-state/atm-state.service';
+import { Observable } from 'rxjs';
+import { IUser } from 'src/app/interface/user.interface';
 import { UserStateService } from 'src/app/services/user-state/user-state.service';
 
 @Component({
@@ -10,11 +10,9 @@ import { UserStateService } from 'src/app/services/user-state/user-state.service
 })
 export class SuperStockComponent implements OnInit {
 
-    public get atmStateService(): AtmStateService { return this._atmStateService; }
-    public get userStateService(): UserStateService { return this._userStateService; }
+    public get CurrentUser(): Observable<IUser> { return this._userStateService.getCurrentUserObs(); }
 
     constructor(
-        private _atmStateService: AtmStateService,
         private _userStateService: UserStateService
     ) { }
 
