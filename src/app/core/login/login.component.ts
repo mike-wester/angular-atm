@@ -17,10 +17,10 @@ export class LoginComponent implements OnInit {
 
     private _currentUser: IUser;
 
+    public loginForm: FormGroup;
     public password: string = null;
     public show: boolean = false;
     public userName: string = null;
-    public loginForm: FormGroup;
 
     public get currentUser() { return this._currentUser };
 
