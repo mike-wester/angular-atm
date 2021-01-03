@@ -50,17 +50,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Big(ish) issues:
 
-Don't use var unless you can't avoid it. use let instead. The reason is var is globally scoped, can read up more on it here: https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
+~~Don't use var unless you can't avoid it. use let instead. The reason is var is globally scoped, can read up more on it here: https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/~~
 
-Services in HTML isn't considered a good practice, instead create an observable variable in your component typescript file. The reason for this is has to do with separation of concerns/design principles
+~~Services in HTML isn't considered a good practice, instead create an observable variable in your component typescript file. The reason for this is has to do with separation of concerns/design principles~~
 
 Some of your code doesn't work as intended. Locally when the ATM was fully stocked I wasn't able to withdraw $1111. I didn't take the time to look into why this was happening, but I think it has something to do with not adding 2 x 50 to make up for the extra 100
 
-Deposit doesn't seem to do much but in your docs you don't mention it working so I assume this is still a WIP
+~~Deposit doesn't seem to do much but in your docs you don't mention it working so I assume this is still a WIP~~
 
 I am not sure if you have disabled the linter or not, but every company I have worked at there have been linting rules, an angular project comes with a set of rules by default, run ng lint in the command line and fix the errors, can sometimes fix unseen bugs but mostly for project consistency.
-
-Remove untouched generated test files. A potential employer might get exciting at the sight of unit tests only to be met by disappointment when they just auto-generated code.
 
 Visually:
 
@@ -70,17 +68,13 @@ Some things could use some padding/margin, I don't like how on the deposit into 
 
 This is me nitpicking:
 
-Lots of redundant files/code
+~~Lots of redundant files/code~~
 
-If your component ngOnInit is empty why not remove it.
-
-If your component .scss file is empty why not remove it
-
-Typos stick out. If you can see if you can set it up with the IDE you are using (if you are using an IDE)
+~~Typos stick out. If you can see if you can set it up with the IDE you are using (if you are using an IDE)~~
 
 I assume this is just from lack of knowledge but you can utilize Angular's Reactive form functionality for a lot cleaner code. As an example in your user-deposit.component.ts you have a reset() function where you set each formControl value to 0. Setting the value doesn't reset the formControl state (this might be intentional), but you could clean it up by using formControl.reset(0) instead. Or better still go up one level and do it on the formGroup. So it would become: this.depositForm.reset({ amountHundred: 0, amountFifty: 0, amountTwenty: 0, amountTen: 0, amountFive: 0, amountTwo: 0, amountOne: 0 });
 
-You might want to change the page not found error/message. Someone without a sense of humor might take it personally :)
+~~You might want to change the page not found error/message. Someone without a sense of humor might take it personally :)~~
 
 Put your dummy user accounts in a JSON file.
 
@@ -117,7 +111,7 @@ I like that you aim to do one large project instead of multiple small ones. The 
 
 Don't be overwhelmed by all of this! In our case, not a single applicant scored high in all four aspects. A lot of them only had a few Hello World projects that they probably created during the attendance of a crash course on Youtube. Your project on the other hand already shows that you know what you're doing. Also, we invited some people with very little knowledge just because we had the impression that they were very motivated and that they were able to learn new stuff fast.
 
-Lastly, I wish you all the best for your further career. Every time life strikes you down and you stand up again, you're stronger. Of course, we should be thankful for all the positive things in life but probably even more for all the setbacks, disappointments, and challenges we face, since they allow us to grow the most. After all, life is just a series of experiences.
+**Lastly, I wish you all the best for your further career. Every time life strikes you down and you stand up again, you're stronger. Of course, we should be thankful for all the positive things in life but probably even more for all the setbacks, disappointments, and challenges we face, since they allow us to grow the most. After all, life is just a series of experiences.**
 
 ## ~~Challenge Requirements~~
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserType } from 'src/app/enum/index.enum';
+import { TransactionHistory } from 'src/app/class/transaction-history';
+import { TransactionHistoryType, UserType } from 'src/app/enum/index.enum';
+import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.service';
 import { UserStateService } from 'src/app/services/user-state/user-state.service';
 
 @Component({
@@ -11,6 +13,7 @@ import { UserStateService } from 'src/app/services/user-state/user-state.service
 export class HeaderComponent implements OnInit {
 
     constructor(
+        private _atmHistoryService: AtmHistoryService,
         private _router: Router,
         private _userStateService: UserStateService
     ) { }
@@ -18,6 +21,8 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void { }
 
     public logoutUser(): void {
+        this.logHistory();
+
         if (this._userStateService.processLogout()) {
             this._router.navigate(['login']);
         }
@@ -37,6 +42,15 @@ export class HeaderComponent implements OnInit {
             default:
                 this._router.navigate(['login']);
         }
+    }
+
+    private logHistory(): void {
+        this._atmHistoryService.addHistory(new TransactionHistory({
+            userId: this._userStateService?.getCurrentUser()?.id,
+            userType: this._userStateService?.getCurrentUser()?.userType,
+            type: TransactionHistoryType[TransactionHistoryType.login],
+            message: 'Attempt to Logoff of ' + this._userStateService?.getCurrentUser()?.firstName + ((!!this._userStateService?.getCurrentUser()) ? ' was successful' : ' failed, invalid Username/Password')
+        }));
     }
 
 }

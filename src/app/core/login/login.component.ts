@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
 
     @ViewChild(ShowHideInputDirective) input: ShowHideInputDirective;
     constructor(
-        private atmHistoryService: AtmHistoryService,
-        private router: Router,
-        private userStateService: UserStateService
+        private _atmHistoryService: AtmHistoryService,
+        private _router: Router,
+        private _userStateService: UserStateService
     ) { }
 
     ngOnInit(): void {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     public processLogin(): void {
         this.userName = this.loginForm.controls['userName'].value;
         this.password = this.loginForm.controls['password'].value;
-        this._currentUser = this.userStateService.processLogin(this.userName, this.password)
+        this._currentUser = this._userStateService.processLogin(this.userName, this.password)
 
         this.logHistory();
 
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
     }
 
     private logHistory(): void {
-        this.atmHistoryService.addHistory(new TransactionHistory({
+        this._atmHistoryService.addHistory(new TransactionHistory({
             userId: this._currentUser?.id,
             userType: this._currentUser?.userType,
             type: TransactionHistoryType[TransactionHistoryType.login],
@@ -75,15 +75,15 @@ export class LoginComponent implements OnInit {
     private processLoginRouting(): void {
         switch (this._currentUser.userType) {
             case UserType.basic: {
-                this.router.navigate(['user-landing']);
+                this._router.navigate(['user-landing']);
                 break;
             }
             case UserType.admin: {
-                this.router.navigate(['admin-landing']);
+                this._router.navigate(['admin-landing']);
                 break;
             }
             case UserType.super: {
-                this.router.navigate(['super-landing']);
+                this._router.navigate(['super-landing']);
                 break;
             }
         }

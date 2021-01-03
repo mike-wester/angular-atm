@@ -24,6 +24,7 @@ import { SuperNewUserComponent } from './core/super/super-new-user/super-new-use
 import { SuperRestockComponent } from './core/super/super-restock/super-restock.component';
 import { SuperStockComponent } from './core/super/super-stock/super-stock.component';
 import { CurrentInventoryComponent } from './components/current-inventory/current-inventory.component';
+import { CurrentHistoryComponent } from './components/current-history/current-history.component';
 
 @NgModule({
     declarations: [
@@ -48,6 +49,7 @@ import { CurrentInventoryComponent } from './components/current-inventory/curren
         SuperRestockComponent,
         SuperStockComponent,
         CurrentInventoryComponent,
+        CurrentHistoryComponent,
     ],
     imports: [
         AppRoutingModule,
