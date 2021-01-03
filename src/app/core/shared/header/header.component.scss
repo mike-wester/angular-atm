@@ -1,6 +1,9 @@
 .navbar-start {
     height: 100px;
     margin-left: 35px;
+    :hover {
+        cursor: pointer;
+    }
 }
 
 .navbar-end {
