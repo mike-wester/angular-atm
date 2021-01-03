@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AdminHistoryComponent } from './core/admin/admin-history/admin-history.component';
 import { AdminLandingComponent } from './core/admin/admin-landing/admin-landing.component';
+import { AdminRestockComponent } from './core/admin/admin-restock/admin-restock.component';
+import { AdminStockComponent } from './core/admin/admin-stock/admin-stock.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './core/shared/footer/footer.component';
@@ -15,9 +18,6 @@ import { UserDepositComponent } from './core/user/user-deposit/user-deposit.comp
 import { UserHistoryComponent } from './core/user/user-history/user-history.component';
 import { UserLandingComponent } from './core/user/user-landing/user-landing.component';
 import { UserWithdrawComponent } from './core/user/user-withdraw/user-withdraw.component';
-import { AdminHistoryComponent } from './core/admin/admin-history/admin-history.component';
-import { AdminRestockComponent } from './core/admin/admin-restock/admin-restock.component';
-import { AdminStockComponent } from './core/admin/admin-stock/admin-stock.component';
 import { SuperLandingComponent } from './core/super/super-landing/super-landing.component';
 import { SuperHistoryComponent } from './core/super/super-history/super-history.component';
 import { SuperNewUserComponent } from './core/super/super-new-user/super-new-user.component';
@@ -36,16 +36,16 @@ import { SuperStockComponent } from './core/super/super-stock/super-stock.compon
         LoginComponent,
         PageNotFoundComponent,
         ShowHideInputDirective,
-        SuperLandingComponent,
-        SuperHistoryComponent,
-        SuperNewUserComponent,
-        SuperRestockComponent,
-        SuperStockComponent,
         UserBalanceComponent,
         UserDepositComponent,
         UserHistoryComponent,
         UserLandingComponent,
         UserWithdrawComponent,
+        SuperLandingComponent,
+        SuperHistoryComponent,
+        SuperNewUserComponent,
+        SuperRestockComponent,
+        SuperStockComponent,
     ],
     imports: [
         AppRoutingModule,

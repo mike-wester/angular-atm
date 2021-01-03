@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserStateService } from 'src/app/services/user-state/user-state.service'
+import { UserStateService } from 'src/app/services/user-state/user-state.service';
 
 @Component({
     selector: 'app-header',
@@ -14,8 +14,7 @@ export class HeaderComponent implements OnInit {
         private _userStateService: UserStateService
     ) { }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void { }
 
     public logoutUser(): void {
         if (this._userStateService.processLogout()) {
