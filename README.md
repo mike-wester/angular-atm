@@ -6,11 +6,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 |          User Name          |  Password  |    User Type     | Account Balance |
 |-----------------------------|------------|------------------|-----------------|
-| Doctor.Strange@gmail.com    |  abc123!!  |  UserType.basic  | 125043          |
+| Clint.Barton@gmail.com      |  abc123!!  |  UserType.basic  | 125043          |
 | Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 12354           |
-| Tony.Stark@gmail.com        |  abc123!!  |  UserType.admin  |                 |
+| Wanda.Maximoff@gmail.com    |  abc123!!  |  UserType.basic  | 65464           |
+| Bucky.Barnes@gmail.com      |  abc123!!  |  UserType.basic  | 34534533        |
+| Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 12354           |
+| Nick.Fury@gmail.com         |  abc123!!  |  UserType.admin  |                 |
 | Bruce.Banner@gmail.com      |  abc123!!  |  UserType.admin  |                 |
+| Peter.Parker@gmail.com      |  abc123!!  |  UserType.admin  |                 |
 | Steve.Rogers@gmail.com      |  abc123!!  |  UserType.super  |                 |
+| Doctor.Strange@gmail.com    |  abc123!!  |  UserType.super  |                 |
+| Tony.Stark@gmail.com        |  abc123!!  |  UserType.super  |                 |
 | Natasha.Romanoff@gmail.com  |  abc123!!  |  UserType.super  |                 |
 
 ## Change Log
@@ -25,13 +31,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * ~~Update all experience flows to perform basic checks~~
 
-* Refactor/Cleanup improve user, admin, super experience
-    * Refactor code to minimize code duplication
-    * Better create shared components
+* ~~Refactor/Cleanup improve user, admin, super experience~~
+    * ~~Refactor code to minimize code duplication~~
+    * ~~Better create shared components~~
 
-* Finalize super basic experience with user add
+* Finalize super user experience with user add
 
-* Styling CSS ( *CRY* )
+* Styling CSS
 
 * Unit tests
 
@@ -112,36 +118,3 @@ I like that you aim to do one large project instead of multiple small ones. The 
 Don't be overwhelmed by all of this! In our case, not a single applicant scored high in all four aspects. A lot of them only had a few Hello World projects that they probably created during the attendance of a crash course on Youtube. Your project on the other hand already shows that you know what you're doing. Also, we invited some people with very little knowledge just because we had the impression that they were very motivated and that they were able to learn new stuff fast.
 
 **Lastly, I wish you all the best for your further career. Every time life strikes you down and you stand up again, you're stronger. Of course, we should be thankful for all the positive things in life but probably even more for all the setbacks, disappointments, and challenges we face, since they allow us to grow the most. After all, life is just a series of experiences.**
-
-## ~~Challenge Requirements~~
-
-Application Requirements:
-
-* The ATM should initially be stocked with 10 of each of the following denominations: $100, $50, $20, $10, $5, $1.
-
-* Users should be able to withdraw cash and the ATM should be able to track bills remaining.
-
-* The ATM should tell the user if it was able/unable to dispense the requested amount.
-
-* The ATM needs to keep track of the current quantities of each of its denominations.
-
-* The ATM needs to keep track of each transaction that happens.
-
-Application Pages
-
-* Withdraw Page
-
-Users should be able to enter a dollar amount and press a withdraw button when desired dollar amount has been entered.
-Withdraw button should remain disabled until the user enters an amount.
-Once with withdrawn button is pressed, display message whether or not transaction was successful (“Dispensed $<amount>” or failure “Insufficient Funds”).
-
-* Restock Page
-
-User should be able to enter quantities for each of the following denominations: $100, $50, $20, $10, $5, $1.
-Once the restock button is pressed, the total quantity of each denomination should be updated.
-Once the restock button is pressed, display a successful message to the user.
-
-* ATM Overview Page
-
-Display the quantities of each denomination currently in the ATM.
-Display a transaction history of withdraw messages (“Dispensed $(amoun)” or failure “Insufficient Funds”).
