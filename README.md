@@ -54,7 +54,7 @@ Big(ish) issues:
 
 ~~Services in HTML isn't considered a good practice, instead create an observable variable in your component typescript file. The reason for this is has to do with separation of concerns/design principles~~
 
-Some of your code doesn't work as intended. Locally when the ATM was fully stocked I wasn't able to withdraw $1111. I didn't take the time to look into why this was happening, but I think it has something to do with not adding 2 x 50 to make up for the extra 100
+~~Some of your code doesn't work as intended. Locally when the ATM was fully stocked I wasn't able to withdraw $1111. I didn't take the time to look into why this was happening, but I think it has something to do with not adding 2 x 50 to make up for the extra 100~~
 
 ~~Deposit doesn't seem to do much but in your docs you don't mention it working so I assume this is still a WIP~~
 
@@ -72,7 +72,7 @@ This is me nitpicking:
 
 ~~Typos stick out. If you can see if you can set it up with the IDE you are using (if you are using an IDE)~~
 
-I assume this is just from lack of knowledge but you can utilize Angular's Reactive form functionality for a lot cleaner code. As an example in your user-deposit.component.ts you have a reset() function where you set each formControl value to 0. Setting the value doesn't reset the formControl state (this might be intentional), but you could clean it up by using formControl.reset(0) instead. Or better still go up one level and do it on the formGroup. So it would become: this.depositForm.reset({ amountHundred: 0, amountFifty: 0, amountTwenty: 0, amountTen: 0, amountFive: 0, amountTwo: 0, amountOne: 0 });
+~~I assume this is just from lack of knowledge but you can utilize Angular's Reactive form functionality for a lot cleaner code. As an example in your user-deposit.component.ts you have a reset() function where you set each formControl value to 0. Setting the value doesn't reset the formControl state (this might be intentional), but you could clean it up by using formControl.reset(0) instead. Or better still go up one level and do it on the formGroup. So it would become: this.depositForm.reset({ amountHundred: 0, amountFifty: 0, amountTwenty: 0, amountTen: 0, amountFive: 0, amountTwo: 0, amountOne: 0 });~~
 
 ~~You might want to change the page not found error/message. Someone without a sense of humor might take it personally :)~~
 

@@ -69,7 +69,7 @@ export class RestockInventoryComponent implements OnInit {
     }
 
     protected reset(): void {
-        this.depositForm.reset(0);
+        this.depositForm.reset({ amountDeposit: 0, amountHundred: 0, amountFifty: 0, amountTwenty: 0, amountTen: 0, amountFive: 0, amountTwo: 0, amountOne: 0 });
     }
 
     protected updateInventory(): void {
