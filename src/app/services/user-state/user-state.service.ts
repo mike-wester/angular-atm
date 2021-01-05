@@ -8,7 +8,7 @@ import { UserType } from 'src/app/enum/index.enum';
 })
 export class UserStateService {
 
-    private _currentUser: IUser = undefined;
+    private _currentUser: IUser;
     private _userList: IUser[] = [];
     private _currentUserSubject: BehaviorSubject<IUser> = new BehaviorSubject(undefined);
 
@@ -31,7 +31,10 @@ export class UserStateService {
     public getCurrentUserObs(): Observable<IUser> { return this._currentUserSubject.asObservable(); }
     public getCurrentUser(): IUser { return this._currentUser; }
 
+    public isLoggedIn(): boolean { return !!this._currentUser };
+
     public processLogin(username: string, password: string): IUser {
+        console.log('processLogin');
         this._currentUser = this._userList.find((user) => user.username === username && user.password === password);
         if (!!this._currentUser) {
             this._currentUserSubject.next(this._currentUser);
@@ -42,6 +45,7 @@ export class UserStateService {
     }
 
     public processLogout(): boolean {
+        console.log('processLogout');
         this._currentUser = undefined;
         this._currentUserSubject.next(this._currentUser);
 
