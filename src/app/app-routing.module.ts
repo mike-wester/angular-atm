@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AdminHistoryComponent, AdminLandingComponent, AdminRestockComponent, AdminStockComponent } from 'src/app/core/admin/index.admin-components';
-import { LoggedInGuard } from 'src/app/class/logged-in.guard';
 import { LoginComponent } from 'src/app/core/login/login.component';
 import { PageNotFoundComponent } from 'src/app/core/shared/page-not-found/page-not-found.component'
 import { SuperHistoryComponent, SuperLandingComponent, SuperNewUserComponent, SuperRestockComponent, SuperStockComponent } from 'src/app/core/super/index.super-components';
@@ -16,7 +15,6 @@ const routes: Routes = [
     {
         path: 'user-landing',
         component: UserLandingComponent,
-        canActivate: [LoggedInGuard],
         children: [
             { path: 'user-balance', component: UserBalanceComponent },
             { path: 'user-deposit', component: UserDepositComponent },
@@ -28,7 +26,6 @@ const routes: Routes = [
     {
         path: 'admin-landing',
         component: AdminLandingComponent,
-        canActivate: [LoggedInGuard],
         children: [
             { path: 'admin-history', component: AdminHistoryComponent },
             { path: 'admin-restock', component: AdminRestockComponent },
@@ -39,7 +36,6 @@ const routes: Routes = [
     {
         path: 'super-landing',
         component: SuperLandingComponent,
-        canActivate: [LoggedInGuard],
         children: [
             { path: 'super-history', component: SuperHistoryComponent },
             { path: 'super-new-user', component: SuperNewUserComponent },
