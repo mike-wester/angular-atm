@@ -43,6 +43,8 @@ export class LoginComponent implements OnInit {
         this.password = this.loginForm.controls['password'].value;
         this._currentUser = this._userStateService.processLogin(this.userName, this.password)
 
+        console.log('WTF this._currentUser ', this._currentUser)
+
         this.logHistory();
 
         this.loginForm.controls['userName'].setValue(null);

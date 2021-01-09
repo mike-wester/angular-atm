@@ -1,12 +1,14 @@
 $base-color: #3498db;
 $text: #74808a;
 
-footer {
-    padding: 50px 0;
-    text-align: center;
+.footer {
+    position: absolute;
+    left: 0 ; right: 0; bottom: 0;
+    height:20px
 }
 
 .copyright {
+    text-align: left;
     padding-top: 20px;
 
     p {
