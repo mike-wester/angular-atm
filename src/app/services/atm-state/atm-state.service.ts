@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ReplaySubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { ICurrency } from 'src/app/interface/index.interface';
 import { CurrencyType } from 'src/app/enum/currency-type.enum';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -9,20 +12,12 @@ import { CurrencyType } from 'src/app/enum/currency-type.enum';
 export class AtmStateService {
 
     private _currentStock: ICurrency[] = [];
-    private _currentStockSubject: BehaviorSubject<ICurrency[]> = new BehaviorSubject(null);
+    private _currentStockSubject: ReplaySubject<ICurrency[]> = new ReplaySubject(1);
 
-    constructor() {
-        this._currentStock = [
-            { index: CurrencyType[CurrencyType.hundred], value: 100, count: 10 },
-            { index: CurrencyType[CurrencyType.fifty], value: 50, count: 10 },
-            { index: CurrencyType[CurrencyType.twenty], value: 20, count: 10 },
-            { index: CurrencyType[CurrencyType.tens], value: 10, count: 10 },
-            { index: CurrencyType[CurrencyType.five], value: 5, count: 10 },
-            { index: CurrencyType[CurrencyType.two], value: 2, count: 5 },
-            { index: CurrencyType[CurrencyType.dollar], value: 1, count: 10 }
-        ];
-
-        this._currentStockSubject.next(this._currentStock);
+    constructor(
+        private http: HttpClient
+    ) {
+        this.loadCurrentStock().subscribe();
     }
 
     public getCurrentStock(): Observable<ICurrency[]> { return this._currentStockSubject.asObservable(); }
@@ -38,29 +33,18 @@ export class AtmStateService {
         let inventoryUsed: number[] = [];
 
         this._currentStock.forEach((currentCurrency: ICurrency, index: number) => {
-            console.log('1');
-            console.log('currentCurrency: ', currentCurrency);
-            console.log('index: ', index);
-            console.log('inventoryUsed: ', inventoryUsed);
-            console.log('amount: ', amount);
-            console.log('1');
 
             inventoryUsed.push(this.checkStock(amount, currentCurrency));
             amount -= inventoryUsed[index] * currentCurrency.value;
-
-            console.log('2');
-            console.log('currentCurrency: ', currentCurrency);
-            console.log('index: ', index);
-            console.log('inventoryUsed: ', inventoryUsed);
-            console.log('amount: ', amount);
-            console.log('2');
         });
 
         if (amount === 0) {
-            this._currentStock.forEach((_, index: number) => {
-                this._currentStock[index].count -= inventoryUsed[index];
+            this._currentStock.forEach((stock, index: number) => {
+                stock.count -= inventoryUsed[index];
+                this.http.put(environment.baseUrl + 'atmstock/' + stock.id, stock).subscribe().unsubscribe();
             })
 
+            this.loadCurrentStock();
             return true;
         };
 
@@ -69,5 +53,13 @@ export class AtmStateService {
 
     private checkStock(totalAmount: number, processAmount: ICurrency): number {
         return Math.min(Math.floor(totalAmount / processAmount.value), processAmount.count);
+    }
+
+    private loadCurrentStock(): Observable<ICurrency[]> {
+        return this.http.get<ICurrency[]>(environment.baseUrl + 'atmstock')
+            .pipe(
+                tap((resp) => this._currentStock = resp),
+                tap((resp) => this._currentStockSubject.next(resp))
+            );
     }
 }

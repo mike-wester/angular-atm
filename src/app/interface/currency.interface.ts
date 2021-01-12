@@ -1,5 +1,6 @@
 export interface ICurrency {
-    index: string,
+    id: string,
+    currencyType: string,
     value: number,
     count: number
 }

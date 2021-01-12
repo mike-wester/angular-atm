@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { ReplaySubject, Observable } from 'rxjs';
 
 import { TransactionHistory } from 'src/app/class/transaction-history';
 import { IUser } from 'src/app/interface/index.interface';
@@ -11,12 +11,13 @@ import { UserType } from 'src/app/enum/index.enum';
 export class AtmHistoryService {
 
     private _transactionHistory: TransactionHistory[] = [];
-    private _transactionHistorySubject: BehaviorSubject<TransactionHistory[]> = new BehaviorSubject(null);
+    private _transactionHistorySubject: ReplaySubject<TransactionHistory[]> = new ReplaySubject(null);
 
     constructor(
     ) { }
 
     public getTransactionHistory = (): Observable<TransactionHistory[]> => this._transactionHistorySubject.asObservable();
+
     public getUserTransactionHistoryUserType = (user: IUser): TransactionHistory[] => this._transactionHistory.filter((t: TransactionHistory) => {
         switch (user.userType) {
             case UserType.super: {
