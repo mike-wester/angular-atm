@@ -5,7 +5,6 @@ import { tap } from 'rxjs/operators';
 import { ICurrency } from 'src/app/interface/index.interface';
 import { CurrencyType } from 'src/app/enum/currency-type.enum';
 import { environment } from 'src/environments/environment';
-import { env } from 'process';
 
 @Injectable({
     providedIn: 'root'

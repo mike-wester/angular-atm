@@ -76,12 +76,6 @@
                         }
                     }
                 },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "angular-atm:build"
-                    }
-                },
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
@@ -91,7 +85,7 @@
                         "karmaConfig": "karma.conf.js",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/app/assets"
                         ],
                         "styles": [
                             "./node_modules/font-awesome/css/font-awesome.min.css",
