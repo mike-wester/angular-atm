@@ -56,10 +56,10 @@ export class LoginComponent implements OnInit {
     public toggleShow() {
         this.show = !this.show;
         if (this.show) {
-            this.input.changeType("text");
+            this.input.changeType('text');
         }
         else {
-            this.input.changeType("password");
+            this.input.changeType('password');
         }
     }
 

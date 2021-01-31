@@ -1,61 +1,61 @@
-<form [formGroup]="depositForm" (submit)="deposit()" class="atm-deposit container">
-    <h3 class="title">Deposit the ATM</h3>
+<form [formGroup]='depositForm' (submit)='deposit()' class='atm-deposit container'>
+    <h3 class='title'>Deposit the ATM</h3>
     <div class='deposit-success' *ngIf='depositSuccessFull'>Congratulations Deposit Successful!</div>
-    <h5 class="page-header">Deposit Amount:</h5>
-    <div class="form-group">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$</span>
+    <h5 class='page-header'>Deposit Amount:</h5>
+    <div class='form-group'>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$</span>
             </div>
-            <input type="number" formControlName='amountDeposit' class="form-control" aria-label="Total to deposit">
+            <input type='number' formControlName='amountDeposit' class='form-control' aria-label='Total to deposit'>
         </div>
-        <h5 class="page-header">Deposit with:</h5>
+        <h5 class='page-header'>Deposit with:</h5>
         <!-- HOW TO DO I MAKE THIS A FOR LOOP ITS SO UGLY!!! -->
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$100.00</span>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$100.00</span>
             </div>
-            <input type="number" formControlName='amountHundred' class="form-control" aria-label="Hundred">
+            <input type='number' formControlName='amountHundred' class='form-control' aria-label='Hundred'>
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$50.00</span>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$50.00</span>
             </div>
-            <input type="number" formControlName='amountFifty' class="form-control" aria-label="Fifties">
+            <input type='number' formControlName='amountFifty' class='form-control' aria-label='Fifties'>
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$20.00</span>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$20.00</span>
             </div>
-            <input type="number" formControlName='amountTwenty' class="form-control" aria-label="Twenties">
+            <input type='number' formControlName='amountTwenty' class='form-control' aria-label='Twenties'>
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$10.00</span>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$10.00</span>
             </div>
-            <input type="number" formControlName='amountTen' class="form-control" aria-label="Tens">
+            <input type='number' formControlName='amountTen' class='form-control' aria-label='Tens'>
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$5.00</span>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$5.00</span>
             </div>
-            <input type="number" formControlName='amountFive' class="form-control" aria-label="Fives">
+            <input type='number' formControlName='amountFive' class='form-control' aria-label='Fives'>
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$2.00</span>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$2.00</span>
             </div>
-            <input type="number" formControlName='amountTwo' class="form-control" aria-label="Twos">
+            <input type='number' formControlName='amountTwo' class='form-control' aria-label='Twos'>
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$1.00</span>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$1.00</span>
             </div>
-            <input type="number" formControlName='amountOne' class="form-control" aria-label="Ones">
+            <input type='number' formControlName='amountOne' class='form-control' aria-label='Ones'>
         </div>
-        <div class="row">
-            <div class="col text-center">
-                <button class="btn btn-primary" type="submit">Process</button>
+        <div class='row'>
+            <div class='col text-center'>
+                <button class='btn btn-primary' type='submit'>Process</button>
             </div>
         </div>
     </div>

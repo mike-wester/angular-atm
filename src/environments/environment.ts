@@ -7,7 +7,7 @@ import { Environment } from './environment.interface';
 export const environment: Environment = {
     production: false,
     useMockData: true,
-    baseMockUrl: "http://localhost:3000/"
+    baseMockUrl: 'http://localhost:3000/'
 };
 
 /*

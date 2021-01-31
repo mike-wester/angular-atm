@@ -1,4 +1,4 @@
-<div class="atm-balance atm-user-balance" *ngIf="CurrentUser | async as user">
+<div class='atm-balance atm-user-balance' *ngIf='CurrentUser | async as user'>
     <h3 class='title'>Welcome {{user.lastName}}, {{user.firstName}}</h3>
     <h3 class='title'>Current Balance</h3>
     <h5 class='title'>{{user.accountBalance | currency:'USD':'symbol':'1.2-2'}}</h5>

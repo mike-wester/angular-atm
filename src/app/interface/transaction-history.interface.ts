@@ -1,4 +1,4 @@
-import { UserType } from "src/app/enum/index.enum";
+import { UserType } from 'src/app/enum/index.enum';
 
 export interface ITransactionHistory {
     userId?: string,
