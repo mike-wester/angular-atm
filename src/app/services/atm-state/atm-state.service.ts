@@ -17,7 +17,7 @@ export class AtmStateService {
     constructor(
         private http: HttpClient
     ) {
-        if (environment.production) {
+        if (environment.useMockData) {
             this._currentStock = [
                 {
                     "id": "308c3c1e-aa37-4b20-ba54-36a471d9f76c",
@@ -90,7 +90,7 @@ export class AtmStateService {
             this._currentStock.forEach((stock, index: number) => {
                 stock.count -= inventoryUsed[index];
                 if (!environment.production) {
-                    this.http.put(environment.baseUrl + 'atmstock/' + stock.id, stock).subscribe().unsubscribe();
+                    this.http.put(environment.baseMockUrl + 'atmstock/' + stock.id, stock).subscribe().unsubscribe();
                 }
             })
 
@@ -106,7 +106,7 @@ export class AtmStateService {
     }
 
     private loadCurrentStock(): Observable<ICurrency[]> {
-        return this.http.get<ICurrency[]>(environment.baseUrl + 'atmstock')
+        return this.http.get<ICurrency[]>(environment.baseMockUrl + 'atmstock')
             .pipe(
                 tap((resp) => this._currentStock = resp),
                 tap((resp) => this._currentStockSubject.next(resp))

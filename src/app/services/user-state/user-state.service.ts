@@ -17,7 +17,7 @@ export class UserStateService {
     constructor(
         private http: HttpClient
     ) {
-        if (environment.production) {
+        if (environment.useMockData) {
             this._userList = [
                 {
                     "id": "3fedffaf-e90a-4935-95e7-46ff29886d11",
@@ -146,7 +146,7 @@ export class UserStateService {
     public withdrawalPossible = (amount: number): boolean => this._currentUser.accountBalance >= amount;
 
     private loadCurrentUsers(): Observable<IUser[]> {
-        return this.http.get<IUser[]>(environment.baseUrl + 'userList')
+        return this.http.get<IUser[]>(environment.baseMockUrl + 'userList')
             .pipe(
                 tap((resp) => {
                     this._userList = resp

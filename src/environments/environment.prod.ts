@@ -1,4 +1,7 @@
-export const environment = {
+import { Environment } from './environment.interface';
+
+export const environment: Environment = {
     production: true,
-    baseUrl: "http://localhost:3000/"
+    useMockData: true,
+    baseMockUrl: "http://localhost:3000/"
 };
