@@ -22,6 +22,10 @@ export class UserStateService {
     ) {
         if (environment.useMockData) {
             this._userList = userlist;
+            /* REMOVE THIS */
+            this._currentUser = this._userList.find((user) => user.id = '3fedffaf-e90a-4935-95e7-46ff29886d11');
+            this._currentUserSubject.next(this._currentUser);
+            /* REMOVE THIS */
         } else {
             this.loadCurrentUsers().subscribe();
         }

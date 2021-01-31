@@ -1,6 +1,6 @@
 <div class="atm-balance atm-user-balance" *ngIf="CurrentUser | async as user">
-    <h3>Welcome {{user.lastName}}, {{user.firstName}}</h3>
-    <h3>Current Account Value</h3>
-    <div>{{user.accountBalance | currency:'USD':'symbol':'1.2-2'}}</div>
+    <h3 class='title'>Welcome {{user.lastName}}, {{user.firstName}}</h3>
+    <h3 class='title'>Current Account Value</h3>
+    <h5 class='title'>{{user.accountBalance | currency:'USD':'symbol':'1.2-2'}}</h5>
     <app-current-inventory></app-current-inventory>
 </div>

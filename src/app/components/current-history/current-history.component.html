@@ -1,6 +1,6 @@
-<div class="atm-history" *ngIf="CurrentUser | async as user">
-    <h3>Transaction History</h3>
-    <div class="row">
+<div class="atm-history container" *ngIf="CurrentUser | async as user">
+    <h3 class="title">Transaction History</h3>
+    <div class="row justify-content-center">
         <h5 class='col-sm-3'>Type</h5>
         <h5 class='col-sm-6'>Message</h5>
         <h5 class='col-sm-3'>Date</h5>
