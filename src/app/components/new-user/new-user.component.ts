@@ -4,7 +4,7 @@ import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.serv
 import { AtmStateService } from 'src/app/services/atm-state/atm-state.service';
 import { UserStateService } from 'src/app/services/user-state/user-state.service';
 import { IUser } from 'src/app/interface/index.interface';
-import { TransactionHistoryType } from 'src/app/enum/index.enum';
+import { UserType, TransactionHistoryType } from 'src/app/enum/index.enum';
 import { TransactionHistory } from 'src/app/class/transaction-history';
 
 @Component({
@@ -15,6 +15,7 @@ import { TransactionHistory } from 'src/app/class/transaction-history';
 export class NewUserComponent implements OnInit {
 
     public newUserForm: FormGroup;
+    public UserType = UserType;
 
     constructor(
         protected _atmHistoryService: AtmHistoryService,
@@ -25,7 +26,9 @@ export class NewUserComponent implements OnInit {
             username: new FormControl(null, Validators.required),
             password: new FormControl(null, Validators.required),
             firstName: new FormControl(null, Validators.required),
-            lastName: new FormControl(null, Validators.required)
+            lastName: new FormControl(null, Validators.required),
+            userType: new FormControl(null, Validators.required),
+            accountBalance: new FormControl(null, [Validators.min(0), Validators.max(200000)])
         });
     }
 
@@ -41,7 +44,7 @@ export class NewUserComponent implements OnInit {
         this._atmHistoryService.addHistory(new TransactionHistory({
             userId: tempUser?.id,
             userType: tempUser?.userType,
-            type: TransactionHistoryType[TransactionHistoryType.deposit],
+            type: TransactionHistoryType[TransactionHistoryType.newUser],
             message: 'WHAT WHAT'
         }));
     }

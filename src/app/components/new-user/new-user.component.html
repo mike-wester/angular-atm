@@ -17,5 +17,22 @@
             <input type='string' formControlName='lastName' class='form-control' aria-label='Last Name'
                 placeholder='Last Name'>
         </div>
+        <div class='input-group mb-3'>
+            <select formControlName='userType' class='form-control' aria-label='User Type' placeholder='User Type'>
+                <option *ngFor="let userType of UserType | enumToArray">
+                    {{userType.name}}
+                </option>
+            </select>
+        </div>
+        <div class='input-group mb-3'>
+            <div class='input-group-prepend'>
+                <span class='input-group-text'>$</span>
+            </div>
+            <input type='number' formControlName='accountBalance' class='form-control' aria-label='Account Balance'
+                placeholder='Account Balance'>
+        </div>
+        <div class='col text-center'>
+            <button class='btn-lg btn-primary' type='submit' [disabled]='!newUserForm.valid'>Create User</button>
+        </div>
     </div>
 </form>

@@ -28,6 +28,7 @@ import { SuperNewUserComponent } from './core/super/super-new-user/super-new-use
 import { SuperRestockComponent } from './core/super/super-restock/super-restock.component';
 import { SuperStockComponent } from './core/super/super-stock/super-stock.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
+import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 
 @NgModule({
     declarations: [
@@ -55,6 +56,7 @@ import { NewUserComponent } from './components/new-user/new-user.component';
         SuperRestockComponent,
         SuperStockComponent,
         NewUserComponent,
+        EnumToArrayPipe,
     ],
     imports: [
         AppRoutingModule,

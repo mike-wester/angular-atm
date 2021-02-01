@@ -3,5 +3,6 @@ export enum TransactionHistoryType {
     'login',
     'logout',
     'restock',
-    'withdrawal'
+    'withdrawal',
+    'newUser'
 }
