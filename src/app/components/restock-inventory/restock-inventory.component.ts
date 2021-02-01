@@ -14,8 +14,6 @@ import { TransactionHistory } from 'src/app/class/transaction-history';
 })
 export class RestockInventoryComponent implements OnInit {
 
-    // HOW DO I GET THIS TO LOOP BETTER!
-
     public depositForm: FormGroup;
     public depositSuccessFull: boolean = false;
 
