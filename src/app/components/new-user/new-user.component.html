@@ -1,0 +1,21 @@
+<form [formGroup]='newUserForm' (submit)='addUser()' class='atm-new-user container'>
+    <h3 class='title'>Create User</h3>
+    <div class='form-group'>
+        <div class='input-group mb-3'>
+            <input type='string' formControlName='username' class='form-control' aria-label='User Name'
+                placeholder='User Name'>
+        </div>
+        <div class='input-group mb-3'>
+            <input type='string' formControlName='password' class='form-control' aria-label='Password'
+                placeholder='Password'>
+        </div>
+        <div class='input-group mb-3'>
+            <input type='string' formControlName='firstName' class='form-control' aria-label='First Name'
+                placeholder='First Name'>
+        </div>
+        <div class='input-group mb-3'>
+            <input type='string' formControlName='lastName' class='form-control' aria-label='Last Name'
+                placeholder='Last Name'>
+        </div>
+    </div>
+</form>
