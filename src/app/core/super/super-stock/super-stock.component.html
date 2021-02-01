@@ -1,4 +1,4 @@
 <div class='atm-balance atm-super-balance' *ngIf='CurrentUser | async as user'>
-    <h3>Welcome {{user.lastName}}, {{user.firstName}}</h3>
+    <h3 class='title'>Welcome {{user.lastName}}, {{user.firstName}}</h3>
     <app-current-inventory></app-current-inventory>
 </div>
