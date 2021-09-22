@@ -6,18 +6,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 |          User Name          |  Password  |    User Type     | Account Balance |
 |-----------------------------|------------|------------------|-----------------|
-| Clint.Barton@gmail.com      |  abc123!!  |  UserType.basic  | 125043          |
-| Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 12354           |
-| Wanda.Maximoff@gmail.com    |  abc123!!  |  UserType.basic  | 65464           |
-| Bucky.Barnes@gmail.com      |  abc123!!  |  UserType.basic  | 34534533        |
-| Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 12354           |
-| Nick.Fury@gmail.com         |  abc123!!  |  UserType.admin  |                 |
-| Bruce.Banner@gmail.com      |  abc123!!  |  UserType.admin  |                 |
-| Peter.Parker@gmail.com      |  abc123!!  |  UserType.admin  |                 |
-| Steve.Rogers@gmail.com      |  abc123!!  |  UserType.super  |                 |
-| Doctor.Strange@gmail.com    |  abc123!!  |  UserType.super  |                 |
-| Tony.Stark@gmail.com        |  abc123!!  |  UserType.super  |                 |
-| Natasha.Romanoff@gmail.com  |  abc123!!  |  UserType.super  |                 |
+| Clint.Barton@gmail.com      |  abc123!!  |  UserType.basic  | 12500           |
+| Scott.Lang@gmail.com        |  abc123!!  |  UserType.basic  | 1200            |
+| Wanda.Maximoff@gmail.com    |  abc123!!  |  UserType.basic  | 65000           |
+| Bucky.Barnes@gmail.com      |  abc123!!  |  UserType.basic  | 65000           |
+| Nick.Fury@gmail.com         |  abc123!!  |  UserType.admin  | 70000           |
+| Bruce.Banner@gmail.com      |  abc123!!  |  UserType.admin  | 60000           |
+| Peter.Parker@gmail.com      |  abc123!!  |  UserType.admin  | 50000           |
+| Steve.Rogers@gmail.com      |  abc123!!  |  UserType.super  | 60000           |
+| Doctor.Strange@gmail.com    |  abc123!!  |  UserType.super  | 600000000       |
+| Tony.Stark@gmail.com        |  abc123!!  |  UserType.super  | 1200000000      |
+| Natasha.Romanoff@gmail.com  |  abc123!!  |  UserType.super  | 60000           |
 
 ## Change Log
 
