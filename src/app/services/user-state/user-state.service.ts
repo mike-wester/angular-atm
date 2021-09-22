@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ReplaySubject, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, ReplaySubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IUser } from 'src/app/interface/index.interface';
 import { environment } from 'src/environments/environment';
-
 // Mock data
 import userlist from 'src/mockdata/userList.json';
+
 
 @Injectable({
     providedIn: 'root'
@@ -22,10 +22,6 @@ export class UserStateService {
     ) {
         if (environment.useMockData) {
             this._userList = userlist;
-            /* REMOVE THIS */
-            this._currentUser = this._userList.find((user) => user.id === '4729b96a-3b54-4b1e-a010-1a7c04cd59f8');
-            this._currentUserSubject.next(this._currentUser);
-            /* REMOVE THIS */
         } else {
             this.loadCurrentUsers().subscribe();
         }

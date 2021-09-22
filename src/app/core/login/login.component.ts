@@ -1,12 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.service';
+import { TransactionHistory } from 'src/app/class/transaction-history';
 import { ShowHideInputDirective } from 'src/app/directives/show-hide-input.directive';
 import { TransactionHistoryType, UserType } from 'src/app/enum/index.enum';
-import { UserStateService } from 'src/app/services/user-state/user-state.service';
 import { IUser } from 'src/app/interface/user.interface';
-import { TransactionHistory } from 'src/app/class/transaction-history';
+import { AtmHistoryService } from 'src/app/services/atm-history/atm-history.service';
+import { UserStateService } from 'src/app/services/user-state/user-state.service';
+// Mock data
+import userlist from 'src/mockdata/userList.json';
 
 @Component({
     selector: 'app-login',
@@ -21,6 +23,7 @@ export class LoginComponent implements OnInit {
     public password: string = null;
     public show: boolean = false;
     public userName: string = null;
+    public userList: IUser [] = userlist;
 
     public get currentUser() { return this._currentUser };
 
