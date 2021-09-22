@@ -6,6 +6,6 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
-    "workbench.editorAssociations": [],
+    "workbench.editorAssociations": {},
     "editor.minimap.maxColumn": 250
 }
